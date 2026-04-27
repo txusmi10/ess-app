@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excellence Sport Standard · ESS 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --r: #C8102E;
+  --r2: #9B0C22;
+  --r3: #F5C6CE;
+  --r4: #FEF0F2;
+  --g: #007A33;
+  --g2: #005825;
+  --g3: #A8D5BB;
+  --g4: #EBF7F1;
+  --w: #FFFFFF;
+  --k: #0D0D0D;
+  --k2: #1A1A1A;
+  --k3: #3A3A3A;
+  --k4: #888;
+  --k5: #CCCCCC;
+  --k6: #F0F0F0;
+  --k7: #F8F8F8;
+  --y: #E6A817;
+  --shadow-r: 0 8px 40px rgba(200,16,46,0.18);
+  --shadow-g: 0 8px 40px rgba(0,122,51,0.15);
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --r-font: 'Cormorant Garamond', Georgia, serif;
+  --s-font: 'DM Sans', sans-serif;
+  --m-font: 'DM Mono', monospace;
+  --ease: cubic-bezier(0.16,1,0.3,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--s-font);
+  background: var(--w);
+  color: var(--k2);
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════════
+   NAV
+══════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px; height: 64px;
+  background: rgba(13,13,13,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200,16,46,0.25);
+  transition: all 0.3s;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px; text-decoration: none;
+}
+.nav-logo-badge {
+  width: 36px; height: 36px; background: var(--r); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--r-font); font-size: 15px; font-weight: 700; color: white;
+  letter-spacing: -0.02em; border: 2px solid var(--g);
+}
+.nav-logo-text {
+  font-family: var(--r-font); font-size: 18px; font-weight: 600;
+  color: white; letter-spacing: 0.02em;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-link {
+  padding: 7px 14px; border-radius: 6px;
+  font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.75);
+  text-decoration: none; cursor: pointer; border: none; background: none;
+  transition: all 0.2s; font-family: var(--s-font);
+}
+.nav-link:hover { color: white; background: rgba(255,255,255,0.08); }
+.nav-link.active { color: white; }
+.nav-cta {
+  padding: 8px 18px; background: var(--r); color: white;
+  border: none; border-radius: 7px; font-size: 13px; font-weight: 600;
+  cursor: pointer; font-family: var(--s-font);
+  transition: all 0.2s; text-decoration: none; margin-left: 8px;
+}
+.nav-cta:hover { background: var(--r2); transform: translateY(-1px); }
+.lang-switcher {
+  display: flex; gap: 2px; margin-left: 16px;
+  background: rgba(255,255,255,0.08); border-radius: 6px; padding: 2px;
+}
+.lang-btn {
+  padding: 5px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;
+  cursor: pointer; border: none; background: none; color: rgba(255,255,255,0.55);
+  font-family: var(--m-font); transition: all 0.2s; letter-spacing: 0.08em;
+}
+.lang-btn.active { background: var(--r); color: white; }
+.nav-hamburger { display: none; }
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  background: var(--k); position: relative; overflow: hidden;
+  padding: 80px 0 0;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 85% 50%, rgba(200,16,46,0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 70% at 15% 80%, rgba(0,122,51,0.10) 0%, transparent 60%),
+    linear-gradient(180deg, #0D0D0D 0%, #111 100%);
+}
+.hero-grid {
+  position: absolute; inset: 0; z-index: 0; opacity: 0.04;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-stripe-r {
+  position: absolute; top: 0; right: 0; width: 6px; height: 100%;
+  background: linear-gradient(180deg, var(--r), var(--r2));
+}
+.hero-stripe-g {
+  position: absolute; top: 0; right: 6px; width: 3px; height: 100%;
+  background: var(--g);
+}
+.hero-content {
+  position: relative; z-index: 1;
+  max-width: 1100px; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(200,16,46,0.15); border: 1px solid rgba(200,16,46,0.3);
+  border-radius: 20px; padding: 6px 16px; margin-bottom: 28px;
+}
+.hero-eyebrow-dot { width: 6px; height: 6px; background: var(--r); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+.hero-eyebrow-text { font-size: 11px; font-weight: 600; color: var(--r3); letter-spacing: 0.14em; text-transform: uppercase; font-family: var(--m-font); }
+
+.hero-title {
+  font-family: var(--r-font); font-size: clamp(48px, 6vw, 82px);
+  font-weight: 700; line-height: 1.0; color: white; margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+.hero-title em { color: var(--r); font-style: italic; }
+.hero-subtitle-big {
+  font-family: var(--r-font); font-size: clamp(20px, 3vw, 32px);
+  font-weight: 400; color: rgba(255,255,255,0.5); margin-bottom: 28px;
+  font-style: italic; line-height: 1.3;
+}
+.hero-desc {
+  font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.6);
+  max-width: 520px; margin-bottom: 40px; font-weight: 300;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  padding: 14px 28px; background: var(--r); color: white;
+  border: none; border-radius: 8px; font-size: 14px; font-weight: 600;
+  cursor: pointer; font-family: var(--s-font); transition: all 0.25s;
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+}
+.btn-primary:hover { background: var(--r2); transform: translateY(-2px); box-shadow: var(--shadow-r); }
+.btn-secondary {
+  padding: 14px 28px; background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px; font-size: 14px; font-weight: 500;
+  cursor: pointer; font-family: var(--s-font); transition: all 0.25s;
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+
+/* Hero card derecha */
+.hero-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px; padding: 32px;
+  backdrop-filter: blur(10px);
+}
+.hero-card-title {
+  font-family: var(--r-font); font-size: 13px; font-weight: 600;
+  color: var(--r3); letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 24px; font-style: normal;
+}
+.hero-stat {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.hero-stat:last-child { border-bottom: none; }
+.hero-stat-ico {
+  width: 40px; height: 40px; border-radius: 8px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.ico-r { background: rgba(200,16,46,0.15); }
+.ico-g { background: rgba(0,122,51,0.15); }
+.ico-y { background: rgba(230,168,23,0.15); }
+.ico-w { background: rgba(255,255,255,0.08); }
+.hero-stat-val {
+  font-family: var(--r-font); font-size: 28px; font-weight: 700;
+  color: white; line-height: 1;
+}
+.hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+.hero-rpi {
+  margin-top: 24px; padding: 16px;
+  background: rgba(0,122,51,0.1); border: 1px solid rgba(0,122,51,0.25);
+  border-radius: 10px; text-align: center;
+}
+.hero-rpi-top {
+  font-size: 10px; color: var(--g3); letter-spacing: 0.1em; text-transform: uppercase;
+  font-family: var(--m-font); margin-bottom: 6px;
+}
+.hero-rpi-num {
+  font-family: var(--r-font); font-size: 20px; font-weight: 700; color: white;
+}
+.hero-rpi-sub { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+/* ══════════════════════════════════════════
+   SECCIONES GENERALES
+══════════════════════════════════════════ */
+section { padding: 100px 0; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  font-family: var(--m-font); color: var(--r); margin-bottom: 16px;
+}
+.section-label::before { content: ''; width: 20px; height: 2px; background: var(--r); }
+.section-title {
+  font-family: var(--r-font); font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; color: var(--k);
+}
+.section-title em { color: var(--r); font-style: italic; }
+.section-title-w { color: white; }
+.section-title-w em { color: var(--r3); }
+.section-body { font-size: 16px; line-height: 1.75; color: var(--k3); max-width: 640px; margin-top: 16px; }
+.section-body-w { color: rgba(255,255,255,0.65); }
+
+/* ══════════════════════════════════════════
+   ABOUT — QUIÉNES SOMOS
+══════════════════════════════════════════ */
+.about { background: var(--w); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.about-text { }
+.about-author {
+  background: var(--k); border-radius: 16px; padding: 32px;
+  position: relative; overflow: hidden;
+}
+.about-author::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--r), var(--g));
+}
+.author-name {
+  font-family: var(--r-font); font-size: 26px; font-weight: 700;
+  color: white; margin-bottom: 6px;
+}
+.author-title {
+  font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6;
+  margin-bottom: 24px; font-weight: 300;
+}
+.author-badges { display: flex; flex-direction: column; gap: 10px; }
+.author-badge {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; border-radius: 10px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+}
+.badge-ico { font-size: 20px; flex-shrink: 0; }
+.badge-text { font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.4; }
+.badge-text strong { color: white; display: block; font-size: 13px; margin-bottom: 2px; }
+.about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+.pillar {
+  padding: 20px; border-radius: 12px; border: 1px solid var(--k6);
+  transition: all 0.25s;
+}
+.pillar:hover { border-color: var(--r3); box-shadow: var(--shadow); transform: translateY(-2px); }
+.pillar-num {
+  font-family: var(--m-font); font-size: 11px; color: var(--r);
+  font-weight: 500; margin-bottom: 8px; letter-spacing: 0.1em;
+}
+.pillar-title { font-size: 14px; font-weight: 600; color: var(--k); margin-bottom: 6px; }
+.pillar-desc { font-size: 12px; color: var(--k4); line-height: 1.5; }
+
+/* ══════════════════════════════════════════
+   NORMA — QUÉ ES
+══════════════════════════════════════════ */
+.norma { background: var(--k7); }
+.norma-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+.norma-card {
+  background: white; border-radius: 14px; padding: 28px;
+  border: 1px solid var(--k6); transition: all 0.25s; position: relative; overflow: hidden;
+}
+.norma-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: var(--r); transform: scaleX(0); transition: transform 0.3s var(--ease);
+  transform-origin: left;
+}
+.norma-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-r); border-color: var(--r3); }
+.norma-card:hover::after { transform: scaleX(1); }
+.norma-card-num {
+  font-family: var(--r-font); font-size: 52px; font-weight: 700;
+  color: var(--k6); line-height: 1; margin-bottom: 16px;
+}
+.norma-card-title { font-size: 16px; font-weight: 700; color: var(--k); margin-bottom: 10px; }
+.norma-card-text { font-size: 13px; color: var(--k4); line-height: 1.65; }
+
+/* ══════════════════════════════════════════
+   SECCIONES DE LA NORMA
+══════════════════════════════════════════ */
+.secciones { background: var(--k); }
+.secciones-list { margin-top: 56px; display: flex; flex-direction: column; gap: 2px; }
+.sec-item {
+  display: grid; grid-template-columns: 64px 1fr auto;
+  align-items: center; gap: 24px; padding: 20px 24px;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; transition: all 0.2s; cursor: default;
+}
+.sec-item:hover { background: rgba(200,16,46,0.08); border-color: rgba(200,16,46,0.2); }
+.sec-item-num {
+  font-family: var(--r-font); font-size: 32px; font-weight: 700;
+  color: rgba(200,16,46,0.4); text-align: center; line-height: 1;
+}
+.sec-item-info { }
+.sec-item-title { font-size: 15px; font-weight: 600; color: white; margin-bottom: 4px; }
+.sec-item-desc { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+.sec-item-badges { display: flex; gap: 6px; flex-shrink: 0; }
+.mini-badge {
+  padding: 3px 9px; border-radius: 20px; font-size: 10px;
+  font-weight: 600; font-family: var(--m-font); letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.mb-r { background: rgba(200,16,46,0.15); color: #F5C6CE; border: 1px solid rgba(200,16,46,0.25); }
+.mb-g { background: rgba(0,122,51,0.15); color: #A8D5BB; border: 1px solid rgba(0,122,51,0.25); }
+.mb-y { background: rgba(230,168,23,0.12); color: #F5D48A; border: 1px solid rgba(230,168,23,0.25); }
+
+/* ══════════════════════════════════════════
+   NIVELES DE CERTIFICACIÓN
+══════════════════════════════════════════ */
+.niveles { background: white; }
+.niveles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+.nivel-card {
+  border-radius: 16px; padding: 36px 28px; text-align: center;
+  position: relative; overflow: hidden; border: 2px solid transparent;
+  transition: all 0.3s;
+}
+.nivel-card:hover { transform: translateY(-6px); }
+.nivel-card.n1 { background: linear-gradient(135deg, #FEF0F2, #FFF8F9); border-color: var(--r3); }
+.nivel-card.n2 { background: linear-gradient(135deg, #EBF7F1, #F5FBF8); border-color: var(--g3); }
+.nivel-card.n3 {
+  background: linear-gradient(135deg, #0D0D0D, #1A1A1A); border-color: var(--y);
+  box-shadow: 0 0 40px rgba(230,168,23,0.15);
+}
+.nivel-estrellas { font-size: 36px; margin-bottom: 16px; letter-spacing: 4px; }
+.nivel-nombre {
+  font-family: var(--r-font); font-size: 24px; font-weight: 700; margin-bottom: 8px;
+}
+.n1 .nivel-nombre, .n2 .nivel-nombre { color: var(--k); }
+.n3 .nivel-nombre { color: white; }
+.nivel-req {
+  font-size: 12px; font-family: var(--m-font); font-weight: 500;
+  margin-bottom: 20px; letter-spacing: 0.05em;
+}
+.n1 .nivel-req { color: var(--r); }
+.n2 .nivel-req { color: var(--g); }
+.n3 .nivel-req { color: var(--y); }
+.nivel-pct {
+  font-family: var(--r-font); font-size: 52px; font-weight: 700; line-height: 1;
+  margin-bottom: 6px;
+}
+.n1 .nivel-pct { color: var(--r); }
+.n2 .nivel-pct { color: var(--g); }
+.n3 .nivel-pct { color: var(--y); }
+.nivel-pct-label { font-size: 11px; color: var(--k4); margin-bottom: 20px; }
+.n3 .nivel-pct-label { color: rgba(255,255,255,0.45); }
+.nivel-desc { font-size: 13px; line-height: 1.6; }
+.n1 .nivel-desc, .n2 .nivel-desc { color: var(--k3); }
+.n3 .nivel-desc { color: rgba(255,255,255,0.6); }
+
+/* ══════════════════════════════════════════
+   AUDITORÍA — HERRAMIENTA
+══════════════════════════════════════════ */
+.auditoria-section { background: var(--k7); display: none; }
+.auditoria-section.visible { display: block; }
+
+/* Header de herramienta */
+.tool-header {
+  background: var(--k); padding: 32px 0; border-bottom: 1px solid rgba(200,16,46,0.2);
+}
+.tool-header-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+}
+.tool-org-label { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 6px; font-family: var(--m-font); letter-spacing: 0.1em; text-transform: uppercase; }
+.tool-org-input {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px; padding: 10px 16px; color: white; font-family: var(--s-font);
+  font-size: 14px; width: 320px; outline: none; transition: border-color 0.2s;
+}
+.tool-org-input:focus { border-color: var(--r); }
+.tool-org-input::placeholder { color: rgba(255,255,255,0.25); }
+
+/* Scoreboard */
+.scoreboard {
+  background: var(--k); position: sticky; top: 64px; z-index: 90;
+  border-bottom: 2px solid var(--r);
+}
+.scoreboard-inner {
+  max-width: 1100px; margin: 0 auto; padding: 14px 40px;
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+}
+.score-metric { text-align: center; }
+.score-val {
+  font-family: var(--r-font); font-size: 24px; font-weight: 700;
+  color: white; line-height: 1;
+}
+.score-lbl { font-size: 10px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; font-family: var(--m-font); }
+.score-sep { width: 1px; height: 36px; background: rgba(255,255,255,0.12); }
+.score-bar-wrap { flex: 1; min-width: 180px; }
+.score-bar-labels { display: flex; justify-content: space-between; font-size: 10px; color: rgba(255,255,255,0.4); margin-bottom: 5px; font-family: var(--m-font); }
+.score-bar-outer { background: rgba(255,255,255,0.1); border-radius: 20px; height: 8px; overflow: hidden; }
+.score-bar-inner { height: 100%; border-radius: 20px; background: linear-gradient(90deg, var(--g), #00C851); transition: width 0.5s var(--ease); width: 0%; }
+.score-nivel {
+  padding: 8px 20px; border-radius: 20px; font-size: 12px; font-weight: 700;
+  border: 1.5px solid rgba(255,255,255,0.2); color: white; background: rgba(255,255,255,0.08);
+  white-space: nowrap; transition: all 0.4s; font-family: var(--m-font); letter-spacing: 0.04em;
+}
+.score-nivel.n1 { background: rgba(200,16,46,0.3); border-color: var(--r); }
+.score-nivel.n2 { background: rgba(0,122,51,0.3); border-color: var(--g); }
+.score-nivel.n3 { background: rgba(230,168,23,0.3); border-color: var(--y); color: var(--y); }
+.score-btn {
+  padding: 10px 20px; background: var(--r); color: white; border: none;
+  border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;
+  font-family: var(--s-font); transition: all 0.2s; white-space: nowrap;
+}
+.score-btn:hover { background: var(--r2); }
+
+/* Herramienta de auditoría */
+.tool-body { max-width: 1100px; margin: 0 auto; padding: 32px 40px 80px; }
+.tool-filtros { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
+.tool-filtros-label { font-size: 11px; font-weight: 600; color: var(--k4); text-transform: uppercase; letter-spacing: 0.1em; margin-right: 4px; }
+.tf-btn {
+  padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+  cursor: pointer; border: 1.5px solid transparent; transition: all 0.2s;
+  font-family: var(--s-font);
+}
+.tf-btn.activo-r { background: var(--r); color: white; border-color: var(--r); }
+.tf-btn.activo-g { background: var(--g); color: white; border-color: var(--g); }
+.tf-btn.activo-y { background: var(--y); color: white; border-color: var(--y); }
+.tf-btn.activo-k { background: var(--k3); color: white; border-color: var(--k3); }
+.tf-btn.inactivo { background: white; border-color: var(--k5); color: var(--k3); }
+
+.tool-seccion { background: white; border-radius: 14px; margin-bottom: 14px; border: 1px solid var(--k6); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.tool-sec-hdr {
+  display: flex; align-items: center; gap: 16px; padding: 18px 22px;
+  cursor: pointer; user-select: none; transition: background 0.15s;
+  border-left: 4px solid var(--r);
+}
+.tool-sec-hdr:hover { background: var(--k7); }
+.tool-sec-num {
+  width: 34px; height: 34px; background: var(--r); border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--r-font); font-size: 16px; font-weight: 700; color: white; flex-shrink: 0;
+}
+.tool-sec-titulo { font-size: 15px; font-weight: 600; color: var(--k); flex: 1; }
+.tool-sec-prog { font-size: 12px; color: var(--k4); white-space: nowrap; }
+.tool-sec-mini { width: 70px; height: 4px; background: var(--k6); border-radius: 10px; overflow: hidden; }
+.tool-sec-mini-inner { height: 100%; background: var(--g); border-radius: 10px; transition: width 0.4s; }
+.tool-sec-chev { color: var(--k5); transition: transform 0.25s; flex-shrink: 0; }
+.tool-sec-chev.open { transform: rotate(180deg); }
+.tool-sec-body { display: none; padding: 0 22px 18px; }
+.tool-sec-body.open { display: block; }
+
+/* Criterio */
+.criterio {
+  border: 1px solid var(--k6); border-radius: 10px; margin-top: 12px;
+  overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.criterio.si { border-color: var(--g); box-shadow: 0 0 0 1px rgba(0,122,51,0.2); }
+.criterio.no { border-color: var(--r); box-shadow: 0 0 0 1px rgba(200,16,46,0.2); }
+.criterio.na { border-color: var(--k5); opacity: 0.55; }
+.crit-hdr { display: flex; align-items: flex-start; gap: 10px; padding: 14px 16px; background: var(--k7); }
+.crit-codigo { font-family: var(--m-font); font-size: 11px; color: var(--k4); white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+.crit-pregunta { font-size: 14px; font-weight: 600; color: var(--k); line-height: 1.45; flex: 1; }
+.tipo-pill {
+  padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.06em; white-space: nowrap; flex-shrink: 0; margin-top: 1px;
+  font-family: var(--m-font);
+}
+.tp-OBL { background: #FEF0F2; color: var(--r2); border: 1px solid var(--r3); }
+.tp-MEJ { background: var(--g4); color: var(--g2); border: 1px solid var(--g3); }
+.tp-REC { background: #FEFCE8; color: #7C4C00; border: 1px solid #F5D48A; }
+
+.crit-body { padding: 12px 16px; border-top: 1px solid var(--k6); }
+.crit-desc { font-size: 13px; color: var(--k4); line-height: 1.65; margin-bottom: 14px; }
+.crit-acciones { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.crit-btn {
+  padding: 8px 16px; border-radius: 7px; font-size: 13px; font-weight: 600;
+  cursor: pointer; border: 1.5px solid var(--k6); background: white;
+  transition: all 0.18s; font-family: var(--s-font);
+}
+.crit-btn.si:hover, .crit-btn.si.sel { background: var(--g4); border-color: var(--g); color: var(--g2); }
+.crit-btn.no:hover, .crit-btn.no.sel { background: var(--r4); border-color: var(--r); color: var(--r2); }
+.crit-btn.na:hover, .crit-btn.na.sel { background: var(--k6); border-color: var(--k5); color: var(--k3); }
+.crit-obs {
+  width: 100%; font-family: var(--s-font); font-size: 12px; color: var(--k);
+  border: 1px solid var(--k6); border-radius: 7px; padding: 8px 12px;
+  background: var(--k7); resize: vertical; min-height: 52px; outline: none;
+  transition: border-color 0.2s;
+}
+.crit-obs:focus { border-color: var(--r); background: white; }
+.crit-obs::placeholder { color: #BBBBBB; font-style: italic; }
+
+/* ══════════════════════════════════════════
+   CONTACTO
+══════════════════════════════════════════ */
+.contacto { background: var(--r); position: relative; overflow: hidden; }
+.contacto::before {
+  content: ''; position: absolute; top: -50%; right: -10%;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: rgba(0,0,0,0.12); pointer-events: none;
+}
+.contacto-inner { position: relative; z-index: 1; text-align: center; }
+.contacto-title {
+  font-family: var(--r-font); font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700; color: white; margin-bottom: 16px; line-height: 1.05;
+}
+.contacto-sub { font-size: 16px; color: rgba(255,255,255,0.75); margin-bottom: 48px; font-weight: 300; }
+.contacto-cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.contacto-card {
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 14px; padding: 28px 32px; text-align: center; min-width: 200px;
+  backdrop-filter: blur(10px); transition: all 0.25s;
+}
+.contacto-card:hover { background: rgba(255,255,255,0.18); transform: translateY(-3px); }
+.contacto-card-ico { font-size: 28px; margin-bottom: 12px; }
+.contacto-card-label { font-size: 11px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em; font-family: var(--m-font); margin-bottom: 8px; }
+.contacto-card-val { font-size: 16px; font-weight: 600; color: white; }
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+footer {
+  background: var(--k); padding: 40px 0; border-top: 1px solid rgba(200,16,46,0.2);
+}
+.footer-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+}
+.footer-left { }
+.footer-logo { font-family: var(--r-font); font-size: 22px; font-weight: 700; color: white; margin-bottom: 6px; }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.35); line-height: 1.7; }
+.footer-rpi {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(0,122,51,0.12); border: 1px solid rgba(0,122,51,0.25);
+  border-radius: 10px; padding: 14px 20px;
+}
+.footer-rpi-ico { font-size: 22px; }
+.footer-rpi-text { font-size: 11px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+.footer-rpi-text strong { color: white; display: block; font-size: 13px; margin-bottom: 2px; }
+
+/* ══════════════════════════════════════════
+   MODAL RESULTADO
+══════════════════════════════════════════ */
+.modal-bg {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  z-index: 2000; align-items: center; justify-content: center; padding: 20px;
+  backdrop-filter: blur(4px);
+}
+.modal-bg.open { display: flex; }
+.modal {
+  background: white; border-radius: 20px; max-width: 640px; width: 100%;
+  overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+  animation: modalIn 0.35s var(--ease);
+}
+@keyframes modalIn { from{transform:translateY(30px);opacity:0} to{transform:translateY(0);opacity:1} }
+.modal-hdr {
+  background: var(--k); padding: 32px; text-align: center;
+  border-bottom: 3px solid var(--r);
+}
+.modal-hdr-title { font-family: var(--r-font); font-size: 28px; font-weight: 700; color: white; margin-bottom: 6px; }
+.modal-hdr-sub { font-size: 13px; color: rgba(255,255,255,0.5); font-family: var(--m-font); }
+.modal-body { padding: 32px; }
+.modal-estrellas { text-align: center; font-size: 52px; letter-spacing: 8px; margin-bottom: 12px; }
+.modal-nivel-nom { text-align: center; font-family: var(--r-font); font-size: 28px; font-weight: 700; color: var(--k); margin-bottom: 6px; }
+.modal-nivel-desc { text-align: center; font-size: 14px; color: var(--k4); line-height: 1.6; margin-bottom: 28px; }
+.modal-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 24px; }
+.modal-stat { background: var(--k7); border-radius: 12px; padding: 18px; text-align: center; }
+.modal-stat-val { font-family: var(--r-font); font-size: 30px; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+.modal-stat-val.r { color: var(--r); } .modal-stat-val.g { color: var(--g); } .modal-stat-val.b { color: #1B5BA8; }
+.modal-stat-lbl { font-size: 11px; color: var(--k4); text-transform: uppercase; letter-spacing: 0.08em; }
+.modal-info { background: var(--r4); border-left: 4px solid var(--r); border-radius: 0 10px 10px 0; padding: 14px 18px; font-size: 13px; color: var(--r2); line-height: 1.6; margin-bottom: 24px; }
+.modal-footer { display: flex; gap: 12px; justify-content: center; }
+.btn-modal-cerrar { padding: 12px 24px; border: 1.5px solid var(--k5); border-radius: 8px; background: white; color: var(--k3); font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--s-font); }
+.btn-modal-print { padding: 12px 24px; background: var(--g); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: var(--s-font); }
+
+/* ══════════════════════════════════════════
+   ANIMACIONES DE ENTRADA
+══════════════════════════════════════════ */
+.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero-content { grid-template-columns: 1fr; gap: 40px; }
+  .hero-card { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .norma-grid { grid-template-columns: 1fr 1fr; }
+  .niveles-grid { grid-template-columns: 1fr; max-width: 380px; margin-left: auto; margin-right: auto; }
+  .sec-item { grid-template-columns: 48px 1fr; }
+  .sec-item-badges { display: none; }
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; align-items: center; }
+  .container { padding: 0 20px; }
+  .hero-content { padding: 0 20px; }
+  .tool-body { padding: 24px 20px 60px; }
+  .scoreboard-inner { padding: 12px 20px; }
+  .tool-header-inner { padding: 0 20px; }
+  .tool-org-input { width: 100%; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 600px) {
+  .norma-grid { grid-template-columns: 1fr; }
+  .modal-stats { grid-template-columns: 1fr 1fr; }
+  section { padding: 64px 0; }
+}
+@media print {
+  nav, .hero, .about, .norma, .secciones, .niveles, .contacto, footer,
+  .tool-filtros, .tool-header, .score-btn, .crit-btn { display: none !important; }
+  .auditoria-section { display: block !important; }
+  .scoreboard { position: static !important; }
+  .tool-sec-body { display: block !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a class="nav-logo" href="#hero">
+    <div class="nav-logo-badge">ESS</div>
+    <span class="nav-logo-text">Excellence Sport Standard</span>
+  </a>
+  <div class="nav-links">
+    <button class="nav-link" onclick="irA('about')" data-t="nav_norma">La Norma</button>
+    <button class="nav-link" onclick="irA('secciones')" data-t="nav_secciones">Secciones</button>
+    <button class="nav-link" onclick="irA('niveles')" data-t="nav_niveles">Certificación</button>
+    <button class="nav-link" onclick="irA('contacto')" data-t="nav_contacto">Contacto</button>
+    <button class="nav-cta" onclick="abrirAuditoria()" data-t="nav_evaluar">▶ Iniciar Evaluación</button>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('eu')">EU</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+  <div class="nav-hamburger">
+    <div class="lang-switcher" style="margin:0">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('eu')">EU</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="nav-cta" style="margin-left:10px" onclick="abrirAuditoria()" data-t="nav_evaluar">▶ Evaluar</button>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-stripe-r"></div>
+  <div class="hero-stripe-g"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        <span class="hero-eyebrow-text" data-t="hero_eyebrow">Norma Privada de Calidad · Registro RPI 01/2013/98</span>
+      </div>
+      <h1 class="hero-title"><em>Excellence</em><br>Sport Standard</h1>
+      <p class="hero-subtitle-big" data-t="hero_subtitle">Calidad y excelencia en el deporte</p>
+      <p class="hero-desc" data-t="hero_desc">La norma de referencia para la calidad, la seguridad y la excelencia en la prestación de servicios de actividades deportivas. Diseñada para clubes, municipios, colegios y entidades deportivas de cualquier tamaño.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="abrirAuditoria()" data-t="hero_cta1">▶ Iniciar Autoevaluación</button>
+        <button class="btn-secondary" onclick="irA('about')" data-t="hero_cta2">Conocer la norma ↓</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title" data-t="hero_card_title">La norma en cifras</div>
+      <div class="hero-stat">
+        <div class="hero-stat-ico ico-r">📋</div>
+        <div>
+          <div class="hero-stat-val">54</div>
+          <div class="hero-stat-label" data-t="hero_stat1">Criterios de verificación auditables</div>
+        </div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-ico ico-g">📁</div>
+        <div>
+          <div class="hero-stat-val">10</div>
+          <div class="hero-stat-label" data-t="hero_stat2">Secciones de la norma</div>
+        </div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-ico ico-y">⭐</div>
+        <div>
+          <div class="hero-stat-val">3</div>
+          <div class="hero-stat-label" data-t="hero_stat3">Niveles de certificación ESS</div>
+        </div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-ico ico-w">⚖️</div>
+        <div>
+          <div class="hero-stat-val">2025</div>
+          <div class="hero-stat-label" data-t="hero_stat4">Última actualización normativa</div>
+        </div>
+      </div>
+      <div class="hero-rpi">
+        <div class="hero-rpi-top" data-t="hero_rpi_top">Propiedad Intelectual Registrada</div>
+        <div class="hero-rpi-num">01 / 2013 / 98</div>
+        <div class="hero-rpi-sub" data-t="hero_rpi_sub">Registro General · España · 2012</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid fade-up">
+      <div class="about-text">
+        <div class="section-label" data-t="about_label">La Norma</div>
+        <h2 class="section-title" data-t="about_title">Una norma <em>pionera</em> al servicio del deporte</h2>
+        <p class="section-body" data-t="about_body">El EXCELLENCE SPORT STANDARD nació de una convicción profunda: el deporte es un derecho, y quienes lo gestionan tienen la responsabilidad ética, técnica y legal de hacerlo con la máxima profesionalidad. Esta norma establece un sistema integral de gestión que garantiza la calidad, la seguridad y la excelencia en cualquier organización deportiva.</p>
+        <div class="about-pillars">
+          <div class="pillar"><div class="pillar-num">01</div><div class="pillar-title" data-t="p1_t">Seguridad</div><div class="pillar-desc" data-t="p1_d">Prioridad absoluta: integridad física, psíquica y moral de los deportistas.</div></div>
+          <div class="pillar"><div class="pillar-num">02</div><div class="pillar-title" data-t="p2_t">Profesionalidad</div><div class="pillar-desc" data-t="p2_d">Solo personas con titulación y formación acreditadas deben dirigir actividades deportivas.</div></div>
+          <div class="pillar"><div class="pillar-num">03</div><div class="pillar-title" data-t="p3_t">Dignidad y Valores</div><div class="pillar-desc" data-t="p3_d">El deporte forma personas. Los valores deben impregnar toda la praxis deportiva.</div></div>
+          <div class="pillar"><div class="pillar-num">04</div><div class="pillar-title" data-t="p4_t">Mejora Continua</div><div class="pillar-desc" data-t="p4_d">Medir, analizar y mejorar sistemáticamente: la excelencia es un proceso, no un destino.</div></div>
+          <div class="pillar"><div class="pillar-num">05</div><div class="pillar-title" data-t="p5_t">Transparencia</div><div class="pillar-desc" data-t="p5_d">Los deportistas y sus familias tienen derecho a saber bajo qué estándares se gestiona su actividad.</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="about-author">
+          <div class="author-name">Jesús María Rodríguez Puente</div>
+          <div class="author-title">Autor y titular de los derechos de la norma ESS · Asiento Registral Nº 01/2013/98</div>
+          <div class="author-badges">
+            <div class="author-badge"><div class="badge-ico">🏆</div><div class="badge-text"><strong>Licencia UEFA PRO Nº 1037</strong>Máxima titulación de entrenador UEFA a nivel europeo</div></div>
+            <div class="author-badge"><div class="badge-ico">🎓</div><div class="badge-text"><strong data-t="badge2_t">Profesor</strong><span data-t="badge2_d">Escuela Alavesa de Entrenadores de Fútbol y Fútbol Sala</span></div></div>
+            <div class="author-badge"><div class="badge-ico">🏛️</div><div class="badge-text"><strong data-t="badge3_t">Miembro Junta Directiva</strong><span data-t="badge3_d">Federación Vasca de Fútbol</span></div></div>
+            <div class="author-badge"><div class="badge-ico">⚽</div><div class="badge-text"><strong data-t="badge4_t">Presidente</strong><span data-t="badge4_d">Comité Vasco de Entrenadores de Fútbol y Fútbol Sala</span></div></div>
+            <div class="author-badge"><div class="badge-ico">📜</div><div class="badge-text"><strong data-t="badge5_t">Norma Registrada</strong><span data-t="badge5_d">Registro General de la Propiedad Intelectual · España · 2012</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUÉ INCLUYE ═══ -->
+<section class="norma" id="norma">
+  <div class="container">
+    <div class="fade-up" style="text-align:center">
+      <div class="section-label" data-t="norma_label">Contenido</div>
+      <h2 class="section-title" data-t="norma_title">¿Qué incluye la <em>norma</em> ESS?</h2>
+    </div>
+    <div class="norma-grid fade-up">
+      <div class="norma-card"><div class="norma-card-num">01</div><div class="norma-card-title" data-t="nc1_t">Sistema de Gestión</div><div class="norma-card-text" data-t="nc1_d">Liderazgo, coordinación, organigrama, descripciones de puesto, reuniones periódicas y comunicación interna.</div></div>
+      <div class="norma-card"><div class="norma-card-num">02</div><div class="norma-card-title" data-t="nc2_t">Documentación y Digitalización</div><div class="norma-card-text" data-t="nc2_d">Gestión documental, fichas de deportistas, RGPD, herramientas digitales y acceso del personal.</div></div>
+      <div class="norma-card"><div class="norma-card-num">03</div><div class="norma-card-title" data-t="nc3_t">Planificación Deportiva</div><div class="norma-card-text" data-t="nc3_d">Planificación anual, hojas de sesión, verificación de material, plan de evacuación y emergencias.</div></div>
+      <div class="norma-card"><div class="norma-card-num">04</div><div class="norma-card-title" data-t="nc4_t">Personal y Cualificación</div><div class="norma-card-text" data-t="nc4_d">Titulaciones, formación continua, funciones de coordinación, seguridad activa y pasiva.</div></div>
+      <div class="norma-card"><div class="norma-card-num">05</div><div class="norma-card-title" data-t="nc5_t">Seguridad Integral</div><div class="norma-card-text" data-t="nc5_d">Botiquines, DESA, RCP, plan de emergencias, verificación de instalaciones, LOPIVI y protección de menores.</div></div>
+      <div class="norma-card"><div class="norma-card-num">06</div><div class="norma-card-title" data-t="nc6_t">Calidad y Mejora Continua</div><div class="norma-card-text" data-t="nc6_d">Análisis de satisfacción, gestión de reclamaciones, revisión anual del sistema y planes de mejora.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECCIONES ═══ -->
+<section class="secciones" id="secciones">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label" data-t="sec_label">Estructura de la norma</div>
+      <h2 class="section-title section-title-w" data-t="sec_title">Las <em>10 secciones</em> de la norma ESS</h2>
+    </div>
+    <div class="secciones-list fade-up" id="secciones-list"></div>
+  </div>
+</section>
+
+<!-- ═══ NIVELES ═══ -->
+<section class="niveles" id="niveles">
+  <div class="container">
+    <div class="fade-up" style="text-align:center">
+      <div class="section-label" data-t="niv_label">Certificación</div>
+      <h2 class="section-title" data-t="niv_title">Tres niveles de <em>certificación</em></h2>
+      <p class="section-body" style="margin:12px auto 0;text-align:center" data-t="niv_body">Cada nivel reconoce el grado de madurez del sistema de gestión deportiva de la organización.</p>
+    </div>
+    <div class="niveles-grid fade-up">
+      <div class="nivel-card n1">
+        <div class="nivel-estrellas">⭐</div>
+        <div class="nivel-nombre">ESS One Star</div>
+        <div class="nivel-req" data-t="n1_req">100% criterios obligatorios</div>
+        <div class="nivel-pct">60%</div>
+        <div class="nivel-pct-label" data-t="niv_min">Puntuación mínima</div>
+        <div class="nivel-desc" data-t="n1_desc">La organización cumple todos los requisitos básicos de calidad y seguridad. Es el punto de partida de la excelencia deportiva.</div>
+      </div>
+      <div class="nivel-card n2">
+        <div class="nivel-estrellas">⭐⭐</div>
+        <div class="nivel-nombre">ESS Two Stars</div>
+        <div class="nivel-req" data-t="n2_req">100% obligatorios + ≥70% mejora</div>
+        <div class="nivel-pct">75%</div>
+        <div class="nivel-pct-label" data-t="niv_min">Puntuación mínima</div>
+        <div class="nivel-desc" data-t="n2_desc">La organización ha desarrollado un sistema de gestión de calidad consolidado, más allá de los mínimos exigidos.</div>
+      </div>
+      <div class="nivel-card n3">
+        <div class="nivel-estrellas" style="filter:drop-shadow(0 0 8px rgba(230,168,23,0.6))">★★★</div>
+        <div class="nivel-nombre">ESS Three Stars</div>
+        <div class="nivel-req" data-t="n3_req">100% obligatorios + ≥90% mejora</div>
+        <div class="nivel-pct">90%</div>
+        <div class="nivel-pct-label" data-t="niv_min">Puntuación mínima</div>
+        <div class="nivel-desc" data-t="n3_desc">La organización es un referente de excelencia en gestión deportiva. El máximo nivel de la norma ESS.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AUDITORÍA ═══ -->
+<div class="auditoria-section" id="auditoria">
+  <div class="tool-header">
+    <div class="tool-header-inner">
+      <div>
+        <div class="tool-org-label" data-t="tool_org_label">Nombre de la organización evaluada</div>
+        <input class="tool-org-input" id="org-nombre" type="text" data-t-ph="tool_org_ph" placeholder="Introduce el nombre de tu club o entidad deportiva…">
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <button class="score-btn" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2)" onclick="resetearAuditoria()" data-t="tool_reset">Reiniciar</button>
+        <button class="score-btn" onclick="verResultado()" data-t="tool_resultado">Ver resultado final</button>
+        <button class="score-btn" style="background:var(--g)" onclick="window.print()" data-t="tool_imprimir">Imprimir / PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="scoreboard">
+    <div class="scoreboard-inner">
+      <div class="score-metric"><div class="score-val" id="sc-pct">0%</div><div class="score-lbl" data-t="sc_pct">Puntuación</div></div>
+      <div class="score-sep"></div>
+      <div class="score-metric"><div class="score-val" style="color:#A8D5BB" id="sc-si">0</div><div class="score-lbl" data-t="sc_si">Cumplidos</div></div>
+      <div class="score-metric"><div class="score-val" style="color:#F5C6CE" id="sc-no">0</div><div class="score-lbl" data-t="sc_no">Incumplidos</div></div>
+      <div class="score-metric"><div class="score-val" style="color:rgba(255,255,255,0.4)" id="sc-pend">0</div><div class="score-lbl" data-t="sc_pend">Pendientes</div></div>
+      <div class="score-sep"></div>
+      <div class="score-bar-wrap">
+        <div class="score-bar-labels"><span data-t="sc_prog">Progreso de evaluación</span><span id="sc-pct-prog">0%</span></div>
+        <div class="score-bar-outer"><div class="score-bar-inner" id="sc-barra"></div></div>
+      </div>
+      <div class="score-sep"></div>
+      <div class="score-nivel" id="sc-nivel">—</div>
+      <button class="score-btn" onclick="verResultado()" data-t="sc_btn">Ver resultado</button>
+    </div>
+  </div>
+
+  <div class="tool-body">
+    <div class="tool-filtros">
+      <span class="tool-filtros-label" data-t="tf_label">Filtrar</span>
+      <button class="tf-btn activo-r" onclick="tfFiltrar('todos',this)" data-t="tf_todos">Todos</button>
+      <button class="tf-btn inactivo" onclick="tfFiltrar('OBL',this)" data-t="tf_obl">Obligatorio</button>
+      <button class="tf-btn inactivo" onclick="tfFiltrar('MEJ',this)" data-t="tf_mej">Mejora</button>
+      <button class="tf-btn inactivo" onclick="tfFiltrar('REC',this)" data-t="tf_rec">Recomendación</button>
+      <button class="tf-btn inactivo" onclick="tfFiltrar('pend',this)" data-t="tf_pend">Solo pendientes</button>
+    </div>
+    <div id="tool-secciones"></div>
+
+    <!-- SECCIÓN DE FIRMAS -->
+    <div id="seccion-firmas" style="background:white;border-radius:14px;border:1px solid var(--k6);overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);margin-top:14px;">
+      <div style="border-left:4px solid var(--r);padding:18px 22px;background:var(--k7);display:flex;align-items:center;gap:14px;">
+        <div style="width:34px;height:34px;background:var(--r);border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:var(--r-font);font-size:18px;font-weight:700;color:white;flex-shrink:0;">✍</div>
+        <div style="font-size:15px;font-weight:600;color:var(--k);" data-t="firma_titulo">Acta de Evaluación — Firmas y Validación</div>
+      </div>
+      <div style="padding:28px 28px 32px;">
+        <p style="font-size:13px;color:var(--k4);line-height:1.65;margin-bottom:28px;" data-t="firma_intro">Las firmas que figuran a continuación otorgan validez documental a la presente evaluación realizada conforme a la Norma Privada de Calidad y Excelencia EXCELLENCE SPORT STANDARD (ESS), Versión 2.0 · 2025. Asiento Registral Nº 01/2013/98 — Registro General de la Propiedad Intelectual · España.</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+
+          <!-- BLOQUE ENTIDAD -->
+          <div>
+            <div style="font-size:12px;font-weight:700;color:var(--r);text-transform:uppercase;letter-spacing:0.1em;font-family:var(--m-font);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--r);" data-t="firma_entidad_titulo">Representante de la Entidad Evaluada</div>
+
+            <div style="margin-bottom:14px;">
+              <label style="font-size:11px;font-weight:600;color:var(--k4);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:5px;" data-t="firma_nombre_label">Nombre y apellidos</label>
+              <input type="text" id="firma-ent-nombre" style="width:100%;font-family:var(--s-font);font-size:13px;border:1px solid var(--k5);border-radius:7px;padding:9px 12px;outline:none;color:var(--k);background:var(--k7);" data-t-ph="firma_nombre_ph" placeholder="Nombre completo del representante…">
+            </div>
+            <div style="margin-bottom:14px;">
+              <label style="font-size:11px;font-weight:600;color:var(--k4);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:5px;" data-t="firma_cargo_label">Cargo</label>
+              <input type="text" id="firma-ent-cargo" style="width:100%;font-family:var(--s-font);font-size:13px;border:1px solid var(--k5);border-radius:7px;padding:9px 12px;outline:none;color:var(--k);background:var(--k7);" data-t-ph="firma_cargo_ph" placeholder="Presidente/a, Director/a, Coordinador/a…">
+            </div>
+            <div style="margin-bottom:14px;">
+              <label style="font-size:11px;font-weight:600;color:var(--k4);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:5px;" data-t="firma_fecha_label">Fecha</label>
+              <input type="date" id="firma-ent-fecha" style="width:100%;font-family:var(--s-font);font-size:13px;border:1px solid var(--k5);border-radius:7px;padding:9px 12px;outline:none;color:var(--k);background:var(--k7);">
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:600;color:var(--k4);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:5px;" data-t="firma_firma_label">Firma</label>
+              <div style="border:1px solid var(--k5);border-radius:7px;background:var(--k7);overflow:hidden;">
+                <canvas id="canvas-entidad" width="400" height="120" style="display:block;width:100%;cursor:crosshair;touch-action:none;"></canvas>
+              </div>
+              <button onclick="limpiarFirma('canvas-entidad')" style="margin-top:6px;font-size:11px;color:var(--k4);background:none;border:none;cursor:pointer;padding:0;font-family:var(--s-font);" data-t="firma_borrar">✕ Borrar firma</button>
+            </div>
+          </div>
+
+          <!-- BLOQUE AUDITOR -->
+          <div>
+            <div style="font-size:12px;font-weight:700;color:var(--g);text-transform:uppercase;letter-spacing:0.1em;font-family:var(--m-font);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--g);" data-t="firma_auditor_titulo">Auditor/a Certificado/a ESS</div>
+
+            <div style="margin-bottom:14px;">
+              <label style="font-size:11px;font-weight:600;color:var(--k4);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:5px;" data-t="firma_aud_nombre_label">Nombre y apellidos</label>
+              <input type="text" id="firma-aud-nombre" style="width:100%;font-family:var(--s-font);font-size:13px;border:1px solid var(--k5);border-radius:7px;padding:9px 12px;outline:none;color:var(--k);background:var(--k7);" data-t-ph="firma_aud_nombre_ph" placeholder="Nombre completo del auditor/a…">
+            </div>
+            <div style="margin-bottom:14px;">
+              <label style="font-size:11px;font-weight:600;color:var(--k4);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:5px;" data-t="firma_aud_num_label">Nº de Certificación ESS</label>
+              <input type="text" id="firma-aud-cert" style="width:100%;font-family:var(--s-font);font-size:13px;border:1px solid var(--k5);border-radius:7px;padding:9px 12px;outline:none;color:var(--k);background:var(--k7);" data-t-ph="firma_aud_cert_ph" placeholder="ESS-2025-XXXX">
+            </div>
+            <div style="margin-bottom:14px;">
+              <label style="font-size:11px;font-weight:600;color:var(--k4);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:5px;" data-t="firma_aud_fecha_label">Fecha</label>
+              <input type="date" id="firma-aud-fecha" style="width:100%;font-family:var(--s-font);font-size:13px;border:1px solid var(--k5);border-radius:7px;padding:9px 12px;outline:none;color:var(--k);background:var(--k7);">
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:600;color:var(--k4);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:5px;" data-t="firma_aud_firma_label">Firma</label>
+              <div style="border:1px solid var(--k5);border-radius:7px;background:var(--k7);overflow:hidden;">
+                <canvas id="canvas-auditor" width="400" height="120" style="display:block;width:100%;cursor:crosshair;touch-action:none;"></canvas>
+              </div>
+              <button onclick="limpiarFirma('canvas-auditor')" style="margin-top:6px;font-size:11px;color:var(--k4);background:none;border:none;cursor:pointer;padding:0;font-family:var(--s-font);" data-t="firma_borrar">✕ Borrar firma</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- PIE LEGAL -->
+        <div style="margin-top:32px;padding-top:20px;border-top:1px solid var(--k6);text-align:center;">
+          <p style="font-size:11px;color:var(--k4);line-height:1.7;font-family:var(--m-font);letter-spacing:0.04em;" data-t="firma_pie">EXCELLENCE SPORT STANDARD · ESS · Versión 2.0 · 2025 · Asiento Registral Nº 01/2013/98<br>Autor y titular de los derechos: Jesús María Rodríguez Puente · D.N.I. 16279941-N<br>© 2025 Todos los derechos reservados · txusmicoach@gmail.com · 616 026 911</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ CONTACTO ═══ -->
+<section class="contacto" id="contacto">
+  <div class="container contacto-inner">
+    <div class="fade-up">
+      <h2 class="contacto-title" data-t="ct_title">¿Quieres certificar<br>tu organización?</h2>
+      <p class="contacto-sub" data-t="ct_sub">Contacta directamente con el autor de la norma para solicitar auditoría oficial, licencias de uso institucional o información.</p>
+      <div class="contacto-cards">
+        <div class="contacto-card"><div class="contacto-card-ico">✉️</div><div class="contacto-card-label" data-t="ct_email_l">Email</div><div class="contacto-card-val">txusmicoach@gmail.com</div></div>
+        <div class="contacto-card"><div class="contacto-card-ico">📱</div><div class="contacto-card-label" data-t="ct_tel_l">Teléfono</div><div class="contacto-card-val">616 026 911</div></div>
+        <div class="contacto-card"><div class="contacto-card-ico">📍</div><div class="contacto-card-label" data-t="ct_loc_l">Sede</div><div class="contacto-card-val">Vitoria-Gasteiz, Álava</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-logo">Excellence Sport Standard</div>
+      <div class="footer-copy" data-t="foot_copy">Norma Privada de Calidad y Excelencia para la Prestación de Servicios en Actividades Deportivas<br>Autor: Jesús María Rodríguez Puente · D.N.I. 16279941-N · Vitoria-Gasteiz, Álava<br>© 2025 Todos los derechos reservados · Reproducción prohibida sin autorización expresa del autor</div>
+    </div>
+    <div class="footer-rpi">
+      <div class="footer-rpi-ico">📜</div>
+      <div class="footer-rpi-text"><strong>Asiento Registral Nº 01/2013/98</strong>Registro General de la Propiedad Intelectual<br>España · Primera inscripción: 15 de enero de 2013</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ MODAL ═══ -->
+<div class="modal-bg" id="modal-bg">
+  <div class="modal">
+    <div class="modal-hdr">
+      <div class="modal-hdr-title" data-t="mod_title">Resultado de la Evaluación ESS</div>
+      <div class="modal-hdr-sub">Excellence Sport Standard · Versión 2.0 · 2025</div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-estrellas" id="mod-estrellas">—</div>
+      <div class="modal-nivel-nom" id="mod-nombre">—</div>
+      <div class="modal-nivel-desc" id="mod-desc">—</div>
+      <div class="modal-stats">
+        <div class="modal-stat"><div class="modal-stat-val b" id="mod-pct">0%</div><div class="modal-stat-lbl" data-t="mod_pct">Puntuación</div></div>
+        <div class="modal-stat"><div class="modal-stat-val g" id="mod-cumpl">0/0</div><div class="modal-stat-lbl" data-t="mod_cumpl">Cumplidos</div></div>
+        <div class="modal-stat"><div class="modal-stat-val r" id="mod-oblko">0</div><div class="modal-stat-lbl" data-t="mod_oblko">Obligatorios KO</div></div>
+      </div>
+      <div class="modal-info" id="mod-info">—</div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-modal-cerrar" onclick="cerrarModal()" data-t="mod_cerrar">Cerrar</button>
+      <button class="btn-modal-print" onclick="window.print()" data-t="mod_print">Imprimir informe</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════
+// TRADUCCIONES
+// ═══════════════════════════════════════════════════════════════════
+const T = {
+  es: {
+    nav_norma:"La Norma",nav_secciones:"Secciones",nav_niveles:"Certificación",nav_contacto:"Contacto",nav_evaluar:"▶ Iniciar Evaluación",
+    hero_eyebrow:"Norma Privada de Calidad · Registro RPI 01/2013/98",hero_subtitle:"Calidad y excelencia en el deporte",
+    hero_desc:"La norma de referencia para la calidad, la seguridad y la excelencia en la prestación de servicios de actividades deportivas.",
+    hero_cta1:"▶ Iniciar Autoevaluación",hero_cta2:"Conocer la norma ↓",hero_card_title:"La norma en cifras",
+    hero_stat1:"Criterios de verificación auditables",hero_stat2:"Secciones de la norma",hero_stat3:"Niveles de certificación ESS",hero_stat4:"Última actualización normativa",
+    hero_rpi_top:"Propiedad Intelectual Registrada",hero_rpi_sub:"Registro General · España · 2012",
+    about_label:"La Norma",about_title:"Una norma pionera al servicio del deporte",
+    about_body:"El EXCELLENCE SPORT STANDARD nació de una convicción profunda: el deporte es un derecho, y quienes lo gestionan tienen la responsabilidad ética, técnica y legal de hacerlo con la máxima profesionalidad.",
+    p1_t:"Seguridad",p1_d:"Prioridad absoluta: integridad física, psíquica y moral de los deportistas.",
+    p2_t:"Profesionalidad",p2_d:"Solo personas con titulación y formación acreditadas deben dirigir actividades deportivas.",
+    p3_t:"Dignidad y Valores",p3_d:"El deporte forma personas. Los valores deben impregnar toda la praxis deportiva.",
+    p4_t:"Mejora Continua",p4_d:"Medir, analizar y mejorar sistemáticamente: la excelencia es un proceso, no un destino.",
+    p5_t:"Transparencia",p5_d:"Los deportistas y sus familias tienen derecho a saber bajo qué estándares se gestiona su actividad.",
+    badge2_t:"Profesor",badge2_d:"Escuela Alavesa de Entrenadores de Fútbol y Fútbol Sala",
+    badge3_t:"Miembro Junta Directiva",badge3_d:"Federación Vasca de Fútbol",
+    badge4_t:"Presidente",badge4_d:"Comité Vasco de Entrenadores de Fútbol y Fútbol Sala",
+    badge5_t:"Norma Registrada",badge5_d:"Registro General de la Propiedad Intelectual · España · 2012",
+    norma_label:"Contenido",norma_title:"¿Qué incluye la norma ESS?",
+    nc1_t:"Sistema de Gestión",nc1_d:"Liderazgo, coordinación, organigrama y comunicación interna.",
+    nc2_t:"Documentación y Digitalización",nc2_d:"Gestión documental, fichas de deportistas, RGPD y herramientas digitales.",
+    nc3_t:"Planificación Deportiva",nc3_d:"Planificación anual, hojas de sesión, verificación de material y emergencias.",
+    nc4_t:"Personal y Cualificación",nc4_d:"Titulaciones, formación continua y funciones de coordinación.",
+    nc5_t:"Seguridad Integral",nc5_d:"Botiquines, DESA, RCP, plan de emergencias, LOPIVI y protección de menores.",
+    nc6_t:"Calidad y Mejora Continua",nc6_d:"Análisis de satisfacción, reclamaciones y revisión anual del sistema.",
+    sec_label:"Estructura",sec_title:"Las 10 secciones de la norma ESS",
+    niv_label:"Certificación",niv_title:"Tres niveles de certificación",niv_body:"Cada nivel reconoce el grado de madurez del sistema de gestión deportiva.",
+    n1_req:"100% criterios obligatorios",n2_req:"100% obligatorios + ≥70% mejora",n3_req:"100% obligatorios + ≥90% mejora",niv_min:"Puntuación mínima",
+    n1_desc:"La organización cumple todos los requisitos básicos de calidad y seguridad.",
+    n2_desc:"La organización ha desarrollado un sistema de gestión de calidad consolidado.",
+    n3_desc:"La organización es un referente de excelencia en gestión deportiva.",
+    tool_org_label:"Nombre de la organización evaluada",tool_org_ph:"Introduce el nombre de tu club o entidad deportiva…",
+    tool_reset:"Reiniciar",tool_resultado:"Ver resultado final",tool_imprimir:"Imprimir / PDF",
+    sc_pct:"Puntuación",sc_si:"Cumplidos",sc_no:"Incumplidos",sc_pend:"Pendientes",sc_prog:"Progreso",sc_btn:"Ver resultado",
+    tf_label:"Filtrar",tf_todos:"Todos",tf_obl:"Obligatorio",tf_mej:"Mejora",tf_rec:"Recomendación",tf_pend:"Solo pendientes",
+    ct_title:"¿Quieres certificar tu organización?",ct_sub:"Contacta directamente con el autor de la norma para solicitar auditoría oficial, licencias de uso institucional o información.",
+    ct_email_l:"Email",ct_tel_l:"Teléfono",ct_loc_l:"Sede",
+    foot_copy:"Norma Privada de Calidad · Autor: Jesús María Rodríguez Puente · © 2025 Todos los derechos reservados",
+    mod_title:"Resultado de la Evaluación ESS",mod_pct:"Puntuación",mod_cumpl:"Cumplidos",mod_oblko:"Obligatorios KO",
+    mod_cerrar:"Cerrar",mod_print:"Imprimir informe",
+    tipo_OBL:"OBLIGATORIO",tipo_MEJ:"MEJORA",tipo_REC:"RECOMENDACIÓN",
+    crit_si:"✓ SÍ",crit_no:"✗ NO",crit_na:"— N/A",crit_obs:"Observaciones / Evidencias…",
+    firma_titulo:"Acta de Evaluación — Firmas y Validación",
+    firma_intro:"Las firmas que figuran a continuación otorgan validez documental a la presente evaluación realizada conforme a la Norma Privada de Calidad y Excelencia EXCELLENCE SPORT STANDARD (ESS), Versión 2.0 · 2025. Asiento Registral Nº 01/2013/98 — Registro General de la Propiedad Intelectual · España.",
+    firma_entidad_titulo:"Representante de la Entidad Evaluada",
+    firma_auditor_titulo:"Auditor/a Certificado/a ESS",
+    firma_nombre_label:"Nombre y apellidos",firma_nombre_ph:"Nombre completo del representante…",
+    firma_cargo_label:"Cargo",firma_cargo_ph:"Presidente/a, Director/a, Coordinador/a…",
+    firma_fecha_label:"Fecha",firma_aud_nombre_label:"Nombre y apellidos",
+    firma_aud_nombre_ph:"Nombre completo del auditor/a…",
+    firma_aud_num_label:"Nº de Certificación ESS",firma_aud_cert_ph:"ESS-2025-XXXX",
+    firma_aud_fecha_label:"Fecha",firma_aud_firma_label:"Firma",firma_firma_label:"Firma",
+    firma_borrar:"✕ Borrar firma",
+    firma_pie:"EXCELLENCE SPORT STANDARD · ESS · Versión 2.0 · 2025 · Asiento Registral Nº 01/2013/98\nAutor y titular de los derechos: Jesús María Rodríguez Puente · D.N.I. 16279941-N\n© 2025 Todos los derechos reservados · txusmicoach@gmail.com · 616 026 911",
+  },
+  eu: {
+    nav_norma:"Araua",nav_secciones:"Atalak",nav_niveles:"Ziurtagiria",nav_contacto:"Kontaktua",nav_evaluar:"▶ Ebaluazioa hasi",
+    hero_eyebrow:"Kalitatezko Arau Pribatua · Erregistroa 01/2013/98",hero_subtitle:"Kiroleko kalitatea eta bikaintasuna",
+    hero_desc:"Kirol jardueren zerbitzuen kalitateari, segurtasunari eta bikaintasunari buruzko erreferentziazko araua. Kirol klub, udalerri, eskola eta edozein tamainatako entitateentzat diseinatua.",
+    hero_cta1:"▶ Autoebaluazioa hasi",hero_cta2:"Araua ezagutu ↓",hero_card_title:"Araua zifrak",
+    hero_stat1:"Audita daitezkeen egiaztapen irizpideak",hero_stat2:"Arauaren atalak",hero_stat3:"ESS ziurtagiri mailak",hero_stat4:"Azken eguneratze arautegia",
+    hero_rpi_top:"Jabetza Intelektuala Erregistratua",hero_rpi_sub:"Erregistro Orokorra · Espainia · 2012",
+    about_label:"Araua",about_title:"Kirolaren alde sortu den arau aitzindaria",
+    about_body:"EXCELLENCE SPORT STANDARD sinesmen sakon batetik jaio zen: kirola eskubide bat da, eta kudeatzen dutenek erantzukizun etiko, tekniko eta legala dute ahalik eta profesionaltasun handienarekin egiteko.",
+    p1_t:"Segurtasuna",p1_d:"Lehentasun absolutua: kirolarien osotasun fisiko, psikiko eta morala.",
+    p2_t:"Profesionaltasuna",p2_d:"Akreditatutako titulazioakin bakarrik pertsona kualifikatuek zuzendu behar dituzte kirol jarduerak.",
+    p3_t:"Duintasuna eta Balioak",p3_d:"Kirolak pertsonak hezten ditu. Balioek kirol praxis osoa blaitu behar dute.",
+    p4_t:"Etengabeko Hobekuntza",p4_d:"Neurtu, aztertu eta sistematikoki hobetu: bikaintasuna prozesua da, ez helmuga.",
+    p5_t:"Gardentasuna",p5_d:"Kirolariek eta haien familiek jakiteko eskubidea dute nola kudeatzen den haien jarduera.",
+    badge2_t:"Irakaslea",badge2_d:"Arabako Futbol eta Futbol Sala Entrenatzaileen Eskola",
+    badge3_t:"Batzorde Nagusiko Kidea",badge3_d:"Euskal Futbol Federazioa",
+    badge4_t:"Presidentea",badge4_d:"Futbol eta Futbol Salako Entrenatzaileen Euskal Batzordea",
+    badge5_t:"Arau Erregistratua",badge5_d:"Jabetza Intelektualaren Erregistro Orokorra · Espainia · 2012",
+    norma_label:"Edukia",norma_title:"Zer dakar ESS arauak?",
+    nc1_t:"Kudeaketa Sistema",nc1_d:"Lidergo, koordinazio, organigrama eta barne komunikazioa.",
+    nc2_t:"Dokumentazioa eta Digitalizazioa",nc2_d:"Dokumentu kudeaketa, kirolarien fitxak, DBAO eta tresna digitalak.",
+    nc3_t:"Kirol Plangintza",nc3_d:"Urteko plangintza, saio orriak, materialen egiaztapena eta larrialdiak.",
+    nc4_t:"Pertsonala eta Kualifikazioa",nc4_d:"Titulazioak, etengabeko prestakuntza eta koordinazio funtzioak.",
+    nc5_t:"Segurtasun Integrala",nc5_d:"Botikinak, DESA, BBA, larrialdi plana, LOPIVI eta adingabeen babesa.",
+    nc6_t:"Kalitatea eta Etengabeko Hobekuntza",nc6_d:"Gogobetetze azterketa, erreklamazioak eta sistemaren urteko berrikuspena.",
+    sec_label:"Egitura",sec_title:"ESS arauaren 10 atalak",
+    niv_label:"Ziurtagiria",niv_title:"Hiru ziurtagiri maila",niv_body:"Maila bakoitzak erakundearen kirol kudeaketa sistemaren heldutasun maila onartzen du.",
+    n1_req:"Ezinbesteko irizpide guztiak %100",n2_req:"%100 derrigorrezkoak + ≥%70 hobekuntza",n3_req:"%100 derrigorrezkoak + ≥%90 hobekuntza",niv_min:"Gutxieneko puntuazioa",
+    n1_desc:"Erakundeak kalitate eta segurtasuneko oinarrizko eskakizun guztiak betetzen ditu.",
+    n2_desc:"Erakundeak finkatutako kalitate kudeaketa sistema garatu du.",
+    n3_desc:"Erakundea kirol kudeaketan bikaintasunaren erreferentzia da.",
+    tool_org_label:"Ebaluatutako erakundearen izena",tool_org_ph:"Sartu zure klub edo kirol erakundearen izena…",
+    tool_reset:"Berrabiarazi",tool_resultado:"Azken emaitza ikusi",tool_imprimir:"Inprimatu / PDF",
+    sc_pct:"Puntuazioa",sc_si:"Beteta",sc_no:"Ez beteta",sc_pend:"Zain",sc_prog:"Aurrerapena",sc_btn:"Emaitza ikusi",
+    tf_label:"Iragazi",tf_todos:"Denak",tf_obl:"Derrigorrezkoa",tf_mej:"Hobekuntza",tf_rec:"Gomendioa",tf_pend:"Bakarrik zain",
+    ct_title:"Zure erakundea ziurtatu nahi al duzu?",ct_sub:"Jarri harremanetan arauaren egilearekin zuzenean auditoretza ofiziala, erabilera lizentziak edo informazioa eskatzeko.",
+    ct_email_l:"Helbide elektronikoa",ct_tel_l:"Telefonoa",ct_loc_l:"Egoitza",
+    foot_copy:"Kalitatezko Arau Pribatua · Egilea: Jesús María Rodríguez Puente · © 2025 Eskubide guztiak gordeta",
+    mod_title:"ESS Ebaluazioaren Emaitza",mod_pct:"Puntuazioa",mod_cumpl:"Beteta",mod_oblko:"Derrigorrezko KO",
+    mod_cerrar:"Itxi",mod_print:"Txostena inprimatu",
+    tipo_OBL:"DERRIGORREZKOA",tipo_MEJ:"HOBEKUNTZA",tipo_REC:"GOMENDIOA",
+    crit_si:"✓ BAI",crit_no:"✗ EZ",crit_na:"— E/E",crit_obs:"Oharrak / Frogak…",
+    firma_titulo:"Ebaluazio Akta — Sinadurak eta Baliozkotzea",
+    firma_intro:"Jarraian agertzen diren sinadurek dokumentu baliozkotasuna ematen diote EXCELLENCE SPORT STANDARD (ESS) Kalitate eta Bikaintasun Arau Pribatua, 2.0 Bertsioa · 2025 arabera egindako ebaluazio honi. Erregistro Asientua Nº 01/2013/98 — Jabetza Intelektualaren Erregistro Orokorra · Espainia.",
+    firma_entidad_titulo:"Ebaluatutako Erakundearen Ordezkaria",
+    firma_auditor_titulo:"ESS Auditorea/Auditora Ziurtatua",
+    firma_nombre_label:"Izena eta abizenak",firma_nombre_ph:"Ordezkaritzan dagoenaren izen osoa…",
+    firma_cargo_label:"Kargua",firma_cargo_ph:"Presidentea, Zuzendaria, Koordinatzailea…",
+    firma_fecha_label:"Data",firma_aud_nombre_label:"Izena eta abizenak",
+    firma_aud_nombre_ph:"Auditorearen izen osoa…",
+    firma_aud_num_label:"ESS Ziurtagiri Zk.",firma_aud_cert_ph:"ESS-2025-XXXX",
+    firma_aud_fecha_label:"Data",firma_aud_firma_label:"Sinadura",firma_firma_label:"Sinadura",
+    firma_borrar:"✕ Sinadura ezabatu",
+    firma_pie:"EXCELLENCE SPORT STANDARD · ESS · 2.0 Bertsioa · 2025 · Erregistro Asientua Nº 01/2013/98\nEgilea eta eskubide titularra: Jesús María Rodríguez Puente · N.A.N. 16279941-N\n© 2025 Eskubide guztiak gordeta · txusmicoach@gmail.com · 616 026 911",
+  },
+  en: {
+    nav_norma:"The Standard",nav_secciones:"Sections",nav_niveles:"Certification",nav_contacto:"Contact",nav_evaluar:"▶ Start Assessment",
+    hero_eyebrow:"Private Quality Standard · Registration 01/2013/98",hero_subtitle:"Quality and excellence in sport",
+    hero_desc:"The reference standard for quality, safety and excellence in the provision of sports activity services. Designed for clubs, municipalities, schools and sports entities of any size.",
+    hero_cta1:"▶ Start Self-Assessment",hero_cta2:"Learn about the standard ↓",hero_card_title:"The standard in figures",
+    hero_stat1:"Auditable verification criteria",hero_stat2:"Standard sections",hero_stat3:"ESS certification levels",hero_stat4:"Latest regulatory update",
+    hero_rpi_top:"Registered Intellectual Property",hero_rpi_sub:"General Registry · Spain · 2012",
+    about_label:"The Standard",about_title:"A pioneering standard in the service of sport",
+    about_body:"The EXCELLENCE SPORT STANDARD was born from a profound conviction: sport is a right, and those who manage it have an ethical, technical and legal responsibility to do so with the utmost professionalism.",
+    p1_t:"Safety",p1_d:"Absolute priority: physical, psychological and moral integrity of athletes.",
+    p2_t:"Professionalism",p2_d:"Only persons with accredited qualifications and training should lead sports activities.",
+    p3_t:"Dignity and Values",p3_d:"Sport shapes people. Values must permeate all sporting practice.",
+    p4_t:"Continuous Improvement",p4_d:"Measure, analyse and improve systematically: excellence is a process, not a destination.",
+    p5_t:"Transparency",p5_d:"Athletes and their families have the right to know under what standards their activity is managed.",
+    badge2_t:"Professor",badge2_d:"Álava School of Football and Futsal Coaches",
+    badge3_t:"Board Member",badge3_d:"Basque Football Federation",
+    badge4_t:"President",badge4_d:"Basque Committee of Football and Futsal Coaches",
+    badge5_t:"Registered Standard",badge5_d:"General Registry of Intellectual Property · Spain · 2012",
+    norma_label:"Content",norma_title:"What does the ESS standard include?",
+    nc1_t:"Management System",nc1_d:"Leadership, coordination, organisational chart and internal communication.",
+    nc2_t:"Documentation and Digitalisation",nc2_d:"Document management, athlete records, GDPR and digital tools.",
+    nc3_t:"Sports Planning",nc3_d:"Annual planning, session sheets, material verification and emergencies.",
+    nc4_t:"Staff and Qualification",nc4_d:"Qualifications, continuous training and coordination functions.",
+    nc5_t:"Integral Safety",nc5_d:"First aid kits, AED, CPR, emergency plan, child protection.",
+    nc6_t:"Quality and Continuous Improvement",nc6_d:"Satisfaction analysis, complaints and annual system review.",
+    sec_label:"Structure",sec_title:"The 10 sections of the ESS standard",
+    niv_label:"Certification",niv_title:"Three levels of certification",niv_body:"Each level recognises the maturity of the organisation's sports management system.",
+    n1_req:"100% mandatory criteria",n2_req:"100% mandatory + ≥70% improvement",n3_req:"100% mandatory + ≥90% improvement",niv_min:"Minimum score",
+    n1_desc:"The organisation meets all the basic quality and safety requirements.",
+    n2_desc:"The organisation has developed a consolidated quality management system.",
+    n3_desc:"The organisation is a benchmark of excellence in sports management.",
+    tool_org_label:"Name of the evaluated organisation",tool_org_ph:"Enter the name of your club or sports entity…",
+    tool_reset:"Reset",tool_resultado:"View final result",tool_imprimir:"Print / PDF",
+    sc_pct:"Score",sc_si:"Compliant",sc_no:"Non-compliant",sc_pend:"Pending",sc_prog:"Progress",sc_btn:"View result",
+    tf_label:"Filter",tf_todos:"All",tf_obl:"Mandatory",tf_mej:"Improvement",tf_rec:"Recommendation",tf_pend:"Pending only",
+    ct_title:"Want to certify your organisation?",ct_sub:"Contact the standard's author directly to request an official audit, institutional licences or information.",
+    ct_email_l:"Email",ct_tel_l:"Phone",ct_loc_l:"Headquarters",
+    foot_copy:"Private Quality Standard · Author: Jesús María Rodríguez Puente · © 2025 All rights reserved",
+    mod_title:"ESS Assessment Result",mod_pct:"Score",mod_cumpl:"Compliant",mod_oblko:"Mandatory KO",
+    mod_cerrar:"Close",mod_print:"Print report",
+    tipo_OBL:"MANDATORY",tipo_MEJ:"IMPROVEMENT",tipo_REC:"RECOMMENDATION",
+    crit_si:"✓ YES",crit_no:"✗ NO",crit_na:"— N/A",crit_obs:"Observations / Evidence…",
+    firma_titulo:"Assessment Record — Signatures and Validation",
+    firma_intro:"The signatures below confer documentary validity to this assessment carried out in accordance with the Private Quality and Excellence Standard EXCELLENCE SPORT STANDARD (ESS), Version 2.0 · 2025. Registration Entry No. 01/2013/98 — General Register of Intellectual Property · Spain.",
+    firma_entidad_titulo:"Representative of the Evaluated Organisation",
+    firma_auditor_titulo:"Certified ESS Auditor",
+    firma_nombre_label:"Full name",firma_nombre_ph:"Full name of the representative…",
+    firma_cargo_label:"Position",firma_cargo_ph:"President, Director, Coordinator…",
+    firma_fecha_label:"Date",firma_aud_nombre_label:"Full name",
+    firma_aud_nombre_ph:"Full name of the auditor…",
+    firma_aud_num_label:"ESS Certification No.",firma_aud_cert_ph:"ESS-2025-XXXX",
+    firma_aud_fecha_label:"Date",firma_aud_firma_label:"Signature",firma_firma_label:"Signature",
+    firma_borrar:"✕ Clear signature",
+    firma_pie:"EXCELLENCE SPORT STANDARD · ESS · Version 2.0 · 2025 · Registration Entry No. 01/2013/98\nAuthor and rights holder: Jesús María Rodríguez Puente · D.N.I. 16279941-N\n© 2025 All rights reserved · txusmicoach@gmail.com · 616 026 911",
+  }
+};
+
+let lang = 'es';
+
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === l.toUpperCase()));
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const k = el.getAttribute('data-t');
+    if (T[l][k]) el.textContent = T[l][k];
+  });
+  document.querySelectorAll('[data-t-ph]').forEach(el => {
+    const k = el.getAttribute('data-t-ph');
+    if (T[l][k]) el.placeholder = T[l][k];
+  });
+  regenerarHerramienta();
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// DATOS DE LA NORMA
+// ═══════════════════════════════════════════════════════════════════
+const SECCIONES_INFO = [
+  { id:1, titulo:{es:"Sistema de Gestión — Liderazgo y Coordinación",eu:"Kudeaketa Sistema — Lidergo eta Koordinazioa",en:"Management System — Leadership and Coordination"}, desc:{es:"Organigrama, objetivos, reuniones, seguimiento y comunicación interna.",eu:"Organigrama, helburuak, bilerak, jarraipena eta barne komunikazioa.",en:"Organisational chart, objectives, meetings, monitoring and internal communication."}, badges:["OBL","OBL","OBL","OBL","OBL","OBL","OBL","OBL"] },
+  { id:2, titulo:{es:"Control de Datos, Documentación y Digitalización",eu:"Datu Kontrola, Dokumentazioa eta Digitalizazioa",en:"Data Control, Documentation and Digitalisation"}, desc:{es:"Gestión documental, fichas de deportistas, RGPD, herramientas digitales.",eu:"Dokumentu kudeaketa, kirolarien fitxak, DBAO, tresna digitalak.",en:"Document management, athlete records, GDPR, digital tools."}, badges:["OBL","OBL","MEJ","OBL"] },
+  { id:3, titulo:{es:"Planificación Deportiva y Sesiones de Entrenamiento",eu:"Kirol Plangintza eta Entrenamendu Saioak",en:"Sports Planning and Training Sessions"}, desc:{es:"Planificación anual, hojas de sesión, verificación de material y emergencias.",eu:"Urteko plangintza, saio orriak, materialen egiaztapena eta larrialdiak.",en:"Annual planning, session sheets, material verification and emergencies."}, badges:["OBL","MEJ","OBL","OBL","OBL","OBL"] },
+  { id:4, titulo:{es:"Personal, Formación y Cualificación",eu:"Pertsonala, Prestakuntza eta Kualifikazioa",en:"Staff, Training and Qualification"}, desc:{es:"Titulaciones habilitantes, formación continua, funciones de coordinación y seguridad.",eu:"Gaikuntza titulazioak, etengabeko prestakuntza, koordinazio eta segurtasun funtzioak.",en:"Enabling qualifications, continuous training, coordination and safety functions."}, badges:["OBL","OBL","OBL","OBL","OBL","OBL","OBL","MEJ","MEJ","OBL"] },
+  { id:5, titulo:{es:"Seguridad Integral",eu:"Segurtasun Integrala",en:"Integral Safety"}, desc:{es:"Botiquines, DESA, RCP, plan de emergencias, LOPIVI y protección de menores.",eu:"Botikinak, DESA, BBA, larrialdi plana, LOPIVI eta adingabeen babesa.",en:"First aid kits, AED, CPR, emergency plan, child protection."}, badges:["OBL","OBL","OBL","OBL","OBL","OBL","MEJ","OBL","OBL","MEJ"] },
+  { id:6, titulo:{es:"Atención al Cliente, Reclamaciones y Comunicación",eu:"Bezero Arreta, Erreklamazioak eta Komunikazioa",en:"Customer Service, Complaints and Communication"}, desc:{es:"Información previa, gestión de reclamaciones, comunicación digital y custodia de bienes.",eu:"Aurretiazko informazioa, erreklamazioen kudeaketa, komunikazio digitala eta ondasunen zaintza.",en:"Prior information, complaints management, digital communication and custody of goods."}, badges:["OBL","OBL","MEJ","OBL"] },
+  { id:7, titulo:{es:"Análisis de Satisfacción y Mejora Continua",eu:"Gogobetetze Azterketa eta Etengabeko Hobekuntza",en:"Satisfaction Analysis and Continuous Improvement"}, desc:{es:"Cuestionarios de satisfacción, análisis de resultados y revisión anual del sistema.",eu:"Gogobetetze galdetegiak, emaitzen azterketa eta sistemaren urteko berrikuspena.",en:"Satisfaction questionnaires, results analysis and annual system review."}, badges:["OBL","OBL","OBL"] },
+  { id:8, titulo:{es:"Reglamento de Régimen Interno y Valores",eu:"Barne Arautegia eta Balioak",en:"Internal Regulations and Values"}, desc:{es:"Valores deportivos, reglamento, protocolo de no conformidades e igualdad.",eu:"Kirol balioak, arautegia, ez-betetze protokoloa eta berdintasuna.",en:"Sporting values, regulations, non-conformity protocol and equality."}, badges:["OBL","OBL","MEJ"] },
+  { id:9, titulo:{es:"Gestión de Proveedores, Material Deportivo y Facturación",eu:"Hornitzaile Kudeaketa, Kirol Materiala eta Fakturaketa",en:"Supplier Management, Sports Material and Billing"}, desc:{es:"Lista de proveedores, control de recepción de material y facturación transparente.",eu:"Hornitzaileen zerrenda, material jasotzea kontrolatzea eta fakturazio gardena.",en:"Supplier list, material reception control and transparent billing."}, badges:["MEJ","MEJ","MEJ"] },
+  { id:10, titulo:{es:"Salud, Bienestar del Deportista y Deporte Sostenible",eu:"Osasuna, Kirolarien Ongizatea eta Kirol Iraunkorra",en:"Health, Athlete Wellbeing and Sustainable Sport"}, desc:{es:"Salud integral, bienestar psicológico, burnout y sostenibilidad ambiental.",eu:"Osasun integrala, ongizate psikologikoa, burnout eta iraunkortasun ingurumena.",en:"Integral health, psychological wellbeing, burnout and environmental sustainability."}, badges:["MEJ","MEJ","REC"] },
+];
+
+const CRITERIOS_DATA = [
+  // S1
+  [{c:"2.1.1",t:"OBL",p:{es:"¿Apoya activamente la Coordinación Deportiva el Sistema de Gestión y trabaja en su mejora continua? ¿Se comunican los objetivos y resultados a todo el personal?",eu:"Kirol Koordinazioak aktiboki laguntzen al du Kudeaketa Sistema eta bere hobekuntza etengabean lan egiten al du?",en:"Does the Sports Coordination actively support the Management System and work on its continuous improvement?"},d:{es:"Se requiere documentación anual: definición de objetivos, actas de reunión de seguimiento, listas de asistencia y comunicaciones al personal.",eu:"Urteko dokumentazioa behar da: helburuen definizioa, jarraipena bileren aktak, asistentzia zerrendak eta pertsonalari komunikazioak.",en:"Annual documentation required: objective definition, follow-up meeting minutes, attendance lists and staff communications."}},
+   {c:"2.1.2",t:"OBL",p:{es:"¿Se comparan regularmente los objetivos con los resultados reales? ¿Se definen y ejecutan medidas correctivas ante desviaciones?",eu:"Helburuak emaitza errealekin alderatzen al dira erregularki?",en:"Are objectives regularly compared with actual results? Are corrective measures defined and implemented?"},d:{es:"Verificación mínima anual mediante informe de seguimiento que incluya análisis de satisfacción, reclamaciones, auditorías internas y estado económico.",eu:"Gutxienez urteko egiaztapena jarraipen txostenaren bidez: gogobetetze azterketa, erreklamazioak, barneko auditoretzak eta egoera ekonomikoa.",en:"Minimum annual verification through a monitoring report including satisfaction analysis, complaints, internal audits and financial status."}},
+   {c:"2.1.3",t:"OBL",p:{es:"¿Se utilizan los resultados de evaluaciones anteriores como base para mejorar el sistema y se informa a todos los implicados?",eu:"Aurreko ebaluazioen emaitzak sistema hobetzeko oinarri gisa erabiltzen al dira?",en:"Are results from previous evaluations used as a basis for improving the system and communicated to all involved?"},d:{es:"Cada evaluación debe derivar en un plan de acción con responsabilidades asignadas. Los resultados deben comunicarse a todo el personal.",eu:"Ebaluaketa bakoitzak ekintza plan bat ekarri behar du erantzukizunekin. Emaitzak langile guztiei jakinarazi behar zaizkie.",en:"Each evaluation must result in an action plan with assigned responsibilities. Results must be communicated to all staff."}},
+   {c:"2.2.1",t:"OBL",p:{es:"¿Existe un organigrama actualizado que identifique a todos los responsables, sus funciones y sus suplentes?",eu:"Badago eguneratutako organigrama bat arduradun guztiak, haien funtzioak eta ordezkoak identifikatzen dituena?",en:"Is there an updated organisational chart identifying all responsible persons, their functions and deputies?"},d:{es:"El organigrama debe contener nombre completo, función, dependencia jerárquica y suplente. Firmado, fechado y accesible para todo el personal.",eu:"Organigramak izen osoa, funtzioa, hierarkia menpekotasuna eta ordezkoa eduki behar du. Sinatuta, datatuta eta langile guztientzat eskuragarri.",en:"The chart must contain full name, function, hierarchical dependency and deputy. Signed, dated and accessible to all staff."}},
+   {c:"2.2.2",t:"OBL",p:{es:"¿Existen descripciones de puesto individualizadas para cada función del organigrama deportivo?",eu:"Ba al daude organigrama kirolaren funtzio bakoitzarentzako banakako lanpostu deskribapenak?",en:"Are there individualised job descriptions for each function in the sports organisational chart?"},d:{es:"Se requieren descripciones para: Coordinador/a Deportivo/a, Técnicos/as, Responsables de Seguridad, Formación, Calidad y Protección de Datos.",eu:"Deskribapenak behar dira: Kirol Koordinatzailea, Teknikoak, Segurtasun Arduradunak, Prestakuntza, Kalitatea eta Datu Babesa.",en:"Descriptions required for: Sports Coordinator, Technicians, Safety Managers, Training, Quality and Data Protection."}},
+   {c:"2.2.3",t:"OBL",p:{es:"¿Existen registros individuales del nivel de formación y cualificación de cada miembro del equipo?",eu:"Ba al daude taldeko kide bakoitzaren prestakuntza eta kualifikazio mailaren banakako erregistroak?",en:"Are there individual records of the training and qualification level of each team member?"},d:{es:"Los registros deben contemplar formación inicial, continua, titulaciones oficiales y certificados. Planificación anual de formación obligatoria.",eu:"Erregistroek hasierako prestakuntza, etengabea, titulazio ofizialak eta ziurtagiriak jaso behar dituzte. Urteko prestakuntza plangintza derrigorrezkoa.",en:"Records must include initial training, continuous training, official qualifications and certificates. Annual training planning required."}},
+   {c:"2.2.4",t:"OBL",p:{es:"¿Se realizan reuniones informativas periódicas sobre la actividad deportiva, novedades normativas y formación?",eu:"Kirol jarduerari, arau berritasunei eta prestakuntzari buruzko informazio bilera erregularrak egiten al dira?",en:"Are regular informational meetings held about sports activities, regulatory updates and training?"},d:{es:"Mínimo una reunión mensual con el equipo técnico. Acta, asistentes, temario y fecha obligatorios.",eu:"Gutxienez hilabeteko bilera bat talde teknikoarekin. Akta, parte-hartzaileak, gai-zerrenda eta data derrigorrezko.",en:"Minimum one monthly meeting with the technical team. Minutes, attendees, agenda and date required."}},
+   {c:"2.2.5",t:"OBL",p:{es:"¿Dispone la organización de un responsable designado de Protección de Datos conforme al RGPD y la LOPDGDD?",eu:"Ba al du erakundeak DBAO eta LOPDGDDaren arabera Datu Babesa arduratzaile izendatua?",en:"Does the organisation have a designated Data Protection Officer compliant with GDPR and LOPDGDD?"},d:{es:"Se requiere: registro de actividades de tratamiento, política de privacidad accesible, consentimientos firmados y designación de responsable.",eu:"Behar da: tratamendu jardueren erregistroa, pribatutasun politika eskuragarri, baimen sinatuak eta arduradunaren izendapena.",en:"Required: processing activities register, accessible privacy policy, signed consents and designation of a responsible person."}}],
+  // S2
+  [{c:"3.1.1",t:"OBL",p:{es:"¿Está garantizado el control, archivo y gestión del ciclo de vida de todos los documentos del sistema de gestión deportiva?",eu:"Ziurtatuta al dago kirol kudeaketa sistemaren dokumentu guztien kontrola, artxiboa eta bizi-zikloaren kudeaketa?",en:"Is the control, filing and lifecycle management of all sports management system documents guaranteed?"},d:{es:"Planificaciones deportivas (mín. 5 años), fichas de deportistas (hasta mayoría de edad +3 años), seguridad (mín. 3 años). Documentos obsoletos marcados 'ANULADA'.",eu:"Kirol plangintza (gut. 5 urte), kirolarien fitxak (adingabetasuna + 3 urte), segurtasuna (gut. 3 urte). Dokumentu zaharrak 'BALIOGABETUA' gisa markatuak.",en:"Sports plans (min. 5 years), athlete records (until majority +3 years), safety (min. 3 years). Obsolete documents marked 'CANCELLED'."}},
+   {c:"3.1.2",t:"OBL",p:{es:"¿Dispone la organización de fichas individuales de cada deportista con historial deportivo, datos médicos y autorización del representante legal (menores)?",eu:"Ba al ditu erakundeak kirolari bakoitzaren banakako fitxak kirol historikoarekin, datu medikoekin eta ordezkari legalaren baimenarekin?",en:"Does the organisation have individual records for each athlete with sports history, medical data and legal representative authorisation (minors)?"},d:{es:"Las fichas deben contener: datos identificativos, contacto de emergencia, datos médicos relevantes, historial deportivo, autorización del representante legal (menores) y consentimiento RGPD.",eu:"Fitxek honakoak eduki behar dituzte: datu identifikatzaileak, larrialdi kontaktua, datu mediko garrantzitsuak, kirol historikoa, ordezkari legalaren baimena eta DBAO baimena.",en:"Records must contain: identification data, emergency contact, relevant medical data, sports history, legal representative authorisation (minors) and GDPR consent."}},
+   {c:"3.1.3",t:"MEJ",p:{es:"¿Dispone la organización de herramientas de gestión digital para la administración de la actividad?",eu:"Ba al ditu erakundeak jarduera administratzeko kudeaketa tresna digitalak?",en:"Does the organisation have digital management tools for activity administration?"},d:{es:"Se recomienda el uso de plataformas digitales de gestión deportiva para: fichas, comunicación con deportistas y familias, planificación, estadísticas y evaluación.",eu:"Kirol kudeaketa plataforma digitalak erabiltzea gomendatzen da: fitxak, kirolariekin eta familiekin komunikazioa, plangintza, estatistikak eta ebaluazioa.",en:"Use of digital sports management platforms is recommended for: records, communication with athletes and families, planning, statistics and evaluation."}},
+   {c:"3.1.4",t:"OBL",p:{es:"¿Todo el personal tiene acceso actualizado a la documentación técnica necesaria para el desempeño de sus funciones?",eu:"Langile guztiek beren funtzioak betetzeko beharrezko dokumentazio teknikoa eguneratuta eskuratu al dezakete?",en:"Does all staff have updated access to the technical documentation necessary for performing their functions?"},d:{es:"Todos los técnicos/as deben poder acceder a: planificaciones deportivas, hojas de sesión tipo, protocolos de seguridad, reglamentos internos y normativa aplicable.",eu:"Tekniko guztiek ondokoak eskuratu ahal izango dituzte: kirol plangintzak, saio orri ereduak, segurtasun protokoloak, barne arautegiak eta aplikagarri arautegia.",en:"All technicians must be able to access: sports plans, session sheet templates, safety protocols, internal regulations and applicable legislation."}}],
+  // S3
+  [{c:"4.1.1",t:"OBL",p:{es:"¿Existe una planificación deportiva documentada para cada grupo, equipo o actividad, adaptada a su nivel y objetivos?",eu:"Ba al dago talde, ekipo edo jarduera bakoitzerako dokumentatutako kirol plangintza bat, bere maila eta helburuetara egokitua?",en:"Is there documented sports planning for each group, team or activity, adapted to its level and objectives?"},d:{es:"Cada grupo debe contar con una planificación anual que incluya: objetivos generales y específicos por niveles, contenidos, metodología, temporalización y criterios de evaluación. Fechada y firmada.",eu:"Talde bakoitzak urteko plangintza bat eduki behar du: orokorreko eta berariazko helburuak mailaka, edukiak, metodologia, egutegia eta ebaluazio irizpideak. Datatuta eta sinatuta.",en:"Each group must have an annual plan including: general and specific objectives by level, contents, methodology, timing and evaluation criteria. Dated and signed."}},
+   {c:"4.1.2",t:"MEJ",p:{es:"¿Las planificaciones son revisables y se adaptan a la evolución real de los deportistas durante la temporada?",eu:"Plangintzak berrikusteko modukoak al dira eta denboraldian zehar kirolarien eboluzio errealera egokitzen al dira?",en:"Are the plans revisable and adapted to the actual evolution of athletes during the season?"},d:{es:"Las planificaciones deben ser documentos vivos. Toda modificación debe documentarse indicando motivo, fecha y firma del responsable.",eu:"Plangintzak dokumentu biziak izan behar dira. Aldaketa guztiak arrazoi, data eta arduradunaren sinadurarekin dokumentatu behar dira.",en:"Plans must be living documents. All modifications must be documented indicating reason, date and signature of the responsible person."}},
+   {c:"4.2.1",t:"OBL",p:{es:"¿Dispone cada sesión de entrenamiento de una hoja de sesión documentada que responda a la planificación previamente establecida?",eu:"Ba al du entrenamendu saio bakoitzak aurrez ezarritako plangintzari erantzuten dion saio orri dokumentatua?",en:"Does each training session have a documented session sheet corresponding to the previously established planning?"},d:{es:"La hoja de sesión debe contener: equipo/grupo, número de sesión, fecha/hora/lugar, deportistas, objetivo, fases con tiempos, materiales, observaciones post-sesión, teléfono de urgencias y plan de evacuación.",eu:"Saio orriak honakoak eduki behar ditu: ekipoa/taldea, saio zenbakia, data/ordua/tokia, kirolariak, helburua, faseak aldiekin, materialak, saioa osteko oharrak, larrialdi telefonoa eta ebakuazio plana.",en:"The session sheet must contain: team/group, session number, date/time/venue, athletes, objective, phases with times, materials, post-session notes, emergency phone and evacuation plan."}},
+   {c:"4.2.2",t:"OBL",p:{es:"¿Se documentan con detalle las modificaciones sobre la sesión planificada?",eu:"Planifikaturiko saioaren aldaketak xehetasunez dokumentatzen al dira?",en:"Are modifications to the planned session documented in detail?"},d:{es:"Cualquier modificación debe anotarse indicando: qué se modificó, por qué, cuándo y qué se acordó.",eu:"Edozein aldaketa ondokoa adieraziz idatzi behar da: zer aldatu zen, zergatik, noiz eta zer adostu zen.",en:"Any modification must be noted indicating: what was changed, why, when and what was agreed."}},
+   {c:"4.2.3",t:"OBL",p:{es:"¿Se verifica antes de cada sesión que el material deportivo a utilizar está disponible y en condiciones óptimas de uso?",eu:"Saio bakoitza hasi aurretik erabiltzeko kirol materiala eskuragarri dagoela eta erabiltzeko egoera onean dagoela egiaztatzen al da?",en:"Is it verified before each session that the sports material to be used is available and in optimal condition?"},d:{es:"Queda prohibido el uso de materiales defectuosos o que supongan riesgo para la integridad física de los deportistas. La verificación previa debe anotarse en la hoja de sesión.",eu:"Material akastun edo kirolarien osotasun fisikoarentzat arriskua dakarten materialak erabiltzea debekatuta dago. Saio orriak aurretiazko egiaztapena jaso behar du.",en:"It is forbidden to use defective materials or those that pose a risk to athletes' physical integrity. Prior verification must be noted in the session sheet."}},
+   {c:"4.2.4",t:"OBL",p:{es:"¿Figura en todas las hojas de sesión el plan de evacuación y el teléfono de urgencias sanitarias?",eu:"Saio orri guztietan agertzen al dira ebakuazio plana eta osasun larrialdietarako telefonoa?",en:"Does the evacuation plan and emergency health phone number appear in all session sheets?"},d:{es:"Es imperativo que en todas las hojas de sesión consten el plan de evacuación de la instalación y el teléfono de emergencias (112 y específico de la instalación).",eu:"Ezinbestekoa da saio orri guztietan instalazioaren ebakuazio plana eta larrialdi telefonoa (112 eta instalazioaren berariazkoa) agertzea.",en:"It is imperative that all session sheets include the facility evacuation plan and emergency phone number (112 and facility-specific)."}}],
+  // S4
+  [{c:"5.1.1",t:"OBL",p:{es:"¿Está cubierta la función de Coordinador/a Deportivo/a por una persona que cumple los requisitos de titulación exigidos?",eu:"Kirol Koordinatzailearen funtzioa beharrezko titulazioa betetzen duen pertsonak betetzen al du?",en:"Is the Sports Coordinator function covered by a person meeting the required qualification requirements?"},d:{es:"Debe poseer: Grado/Licenciatura CAFD, Maestro/a Educación Física, TAFAD o Técnico/a Deportivo/a Superior. Además, formación en primeros auxilios con actualización anual.",eu:"Ondokoa eduki behar du: CAFD, Gorputz Hezkuntzako Maisua, TAFAD edo Kirol Teknikari Goi. Gainera, lehen laguntzetan prestakuntza urtero eguneratua.",en:"Must possess: CAFD Degree, Physical Education Teacher, TAFAD or Senior Sports Technician. Plus first aid training with annual update."}},
+   {c:"5.1.2",t:"OBL",p:{es:"¿Participa el/la Coordinador/a Deportivo/a en formación continua anual de actualización en gestión deportiva?",eu:"Kirol Koordinatzaileak kirol kudeaketaren eguneratzean urteko etengabeko prestakuntzan parte hartzen al du?",en:"Does the Sports Coordinator participate in annual continuous training to update sports management?"},d:{es:"Se requiere un mínimo de 20 horas anuales de formación continua. Debe acreditarse mediante certificado de participación.",eu:"Gutxienez 20 ordu urteko etengabeko prestakuntza behar da. Parte-hartze ziurtagiriaren bidez egiaztatu behar da.",en:"A minimum of 20 hours of annual continuous training is required. Must be accredited by a participation certificate."}},
+   {c:"5.2.1",t:"OBL",p:{es:"¿Dispone la organización de un número suficiente de técnicos/as para atender adecuadamente a todos los grupos y equipos?",eu:"Ba al ditu erakundeak talde eta ekipo guztiei behar bezala aritzeko adina teknikari?",en:"Does the organisation have a sufficient number of technicians to adequately serve all groups and teams?"},d:{es:"Debe existir al menos un técnico/a deportivo/a por cada equipo o grupo de entrenamiento. Los ratios deportistas/técnico deben ajustarse a los mínimos establecidos por la normativa aplicable.",eu:"Entrenamendu talde edo ekipo bakoitzeko gutxienez teknikari kirolari bat egon behar da. Kirolari/teknikari ratioak aplikagarri arautegiak ezarritako gutxienekoetara egokitu behar dira.",en:"There must be at least one sports technician per training team or group. Athlete/technician ratios must meet the minimum established by applicable regulations."}},
+   {c:"5.2.2",t:"OBL",p:{es:"¿Acreditan todos los técnicos/as la titulación habilitante exigida por la normativa vigente para la modalidad deportiva que imparten?",eu:"Tekniko guztiek ematen duten kirol modalitaterako indarreko arautegiak eskatutako gaikuntza titulazio al dute?",en:"Do all technicians hold the enabling qualification required by current regulations for the sports modality they teach?"},d:{es:"Todos los técnicos/as deben poseer la titulación oficial habilitante conforme al Real Decreto 1363/2007 y la legislación autonómica aplicable. En el País Vasco, normativa de profesiones deportivas vigente desde enero de 2026.",eu:"Tekniko guztiek 1363/2007 Errege Dekretua eta aplikagarri erkidego legeria kontuan hartuta titulazio ofizial gaikuntza eduki behar dute. Euskadin, 2026ko urtarrilean indarrean den arautegia.",en:"All technicians must hold the official enabling qualification per Royal Decree 1363/2007 and applicable regional legislation. In the Basque Country, sports professions regulations in force from January 2026."}},
+   {c:"5.2.3",t:"OBL",p:{es:"¿Participan todos los técnicos/as en formación continua anual de actualización técnica y pedagógica?",eu:"Tekniko guztiek urteko eguneratze tekniko eta pedagogikoaren etengabeko prestakuntzan parte hartzen al dute?",en:"Do all technicians participate in annual continuous training for technical and pedagogical updating?"},d:{es:"Se requiere un mínimo de 20 horas anuales de formación continua específica de la modalidad que imparten. Además, formación en primeros auxilios con actualización anual.",eu:"Ematen duten modalitatearen berariazko gutxienez 20 ordu urteko etengabeko prestakuntza behar da. Gainera, lehen laguntzetan prestakuntza urteko eguneratua.",en:"A minimum of 20 hours of specific annual continuous training in the modality they teach is required. Plus first aid training with annual update."}},
+   {c:"5.3.1",t:"OBL",p:{es:"¿Está designado/a y acreditado/a un Responsable de Seguridad Activa con formación en primeros auxilios y desfibrilación (DESA)?",eu:"Ba al dago izendatua eta egiaztatua Segurtasun Aktiboko Arduraduna lehen laguntzetan eta disfibrilazioan (DESA) prestakuntzarekin?",en:"Is an Active Safety Officer designated and accredited with first aid and defibrillation (AED) training?"},d:{es:"Debe dominar las técnicas de RCP y manejo del DESA, con certificación actualizada anualmente. Debe estar presente en las instalaciones durante entrenamientos y competiciones.",eu:"BBA eta DESA erabileraren teknikak menderatu behar ditu, urtero eguneratutako ziurtagiriarekin. Entrenamenduetan eta lehiaketetan instalazioetan presente egon behar du.",en:"Must master CPR and AED techniques with annually updated certification. Must be present at facilities during training and competitions."}},
+   {c:"5.3.2",t:"OBL",p:{es:"¿Está designado/a un Responsable de Seguridad Pasiva con conocimiento actualizado de la normativa sobre instalaciones y equipamiento deportivo?",eu:"Ba al dago izendatua Segurtasun Pasiboaren Arduraduna instalazio eta kirol ekipamenduari buruzko arautegi eguneratua ezagutzen duena?",en:"Is a Passive Safety Officer designated with updated knowledge of regulations on sports facilities and equipment?"},d:{es:"Debe mantenerse actualizado/a sobre la legislación y especificaciones técnicas reconocidas en materia de instalaciones fijas y equipamiento. Formación mínima anual de 10 horas.",eu:"Instalazio finkoen eta ekipamenduen arautegiaren eta espezifikazio tekniko ezagunen jakitun eguneratuta egon behar du. Gutxienez 10 ordu urteko prestakuntza.",en:"Must remain updated on legislation and recognised technical specifications for fixed facilities and equipment. Minimum 10 hours of annual training."}},
+   {c:"5.3.3",t:"MEJ",p:{es:"¿Está designado/a un Responsable de Formación que planifique y gestione la formación continua de todo el equipo?",eu:"Ba al dago izendatua Prestakuntza Arduraduna talde osoaren etengabeko prestakuntza planifikatu eta kudeatzen duena?",en:"Is a Training Officer designated to plan and manage continuous training for the entire team?"},d:{es:"Gestiona la detección de necesidades de formación, la organización de cursos internos y externos, y el registro de la formación recibida por cada miembro del equipo.",eu:"Prestakuntza beharren detekzioa, barne eta kanpoko ikastaroen antolaketa eta taldeko kide bakoitzak jasotako prestakuntzaren erregistroa kudeatzen du.",en:"Manages the detection of training needs, organisation of internal and external courses, and records of training received by each team member."}},
+   {c:"5.3.4",t:"MEJ",p:{es:"¿Está designado/a un Responsable de Calidad y Satisfacción que implemente el sistema de análisis de satisfacción?",eu:"Ba al dago izendatua gogobetetze analisien sistema inplementatzen duen Kalitate eta Gogobetetze Arduraduna?",en:"Is a Quality and Satisfaction Officer designated to implement the satisfaction analysis system?"},d:{es:"Gestiona los cuestionarios de satisfacción, el sistema de reclamaciones, el análisis de resultados y las propuestas de mejora. Formación mínima anual de 15 horas.",eu:"Gogobetetze galdetegiak, erreklamazio sistema, emaitzen azterketa eta hobekuntza proposamenak kudeatzen ditu. Gutxienez 15 ordu urteko prestakuntza.",en:"Manages satisfaction questionnaires, complaints system, results analysis and improvement proposals. Minimum 15 hours of annual training."}},
+   {c:"5.3.5",t:"OBL",p:{es:"¿Está designado/a un Responsable de Protección de Datos y Comunicación Digital?",eu:"Ba al dago izendatua Datu Babeserako eta Komunikazio Digitalerako Arduraduna?",en:"Is a Data Protection and Digital Communication Officer designated?"},d:{es:"Garantiza el cumplimiento del RGPD y la LOPDGDD en todos los procesos de tratamiento de datos personales, gestiona las comunicaciones digitales y vela por la protección de la imagen de los deportistas en redes sociales.",eu:"DBAO eta LOPDGDDaren betetzea bermatzen du datu pertsonalen tratamendu prozesu guztietan, komunikazio digitalak kudeatzen ditu eta sare sozialetan kirolarien irudiaren babesa zaintzen du.",en:"Ensures GDPR and LOPDGDD compliance in all personal data processing, manages digital communications and protects athletes' image on social media."}}],
+  // S5
+  [{c:"6.1.1",t:"OBL",p:{es:"¿Dispone cada grupo de trabajo de un botiquín de primeros auxilios perfectamente identificado, completo y con todos sus elementos en vigor?",eu:"Ba al du lan talde bakoitzak ondo identifikatutako, osatutako eta elementu guztiak indarrean dituen lehen laguntza botikina?",en:"Does each working group have a perfectly identified, complete first aid kit with all items in date?"},d:{es:"Cada grupo debe disponer de un botiquín identificado con el nombre del grupo y del responsable. Control quincenal documentado del contenido y caducidad.",eu:"Talde bakoitzak taldearen eta arduradunaren izenarekin identifikatutako botikina eduki behar du. Edukiaren eta iraungipenaren hamabostekero dokumentatutako kontrola.",en:"Each group must have a kit identified with the group name and responsible person's name. Fortnightly documented control of contents and expiry dates."}},
+   {c:"6.1.2",t:"OBL",p:{es:"¿Dispone la instalación deportiva de un desfibrilador semiautomático (DESA) operativo, señalizado y de fácil acceso?",eu:"Ba al du kirol instalazioak funtzionatzeko prest dagoen, seinalizatutako eta erraz eskuragarri dagoen disfibrilatzaile erdiautomatikorik (DESA)?",en:"Does the sports facility have an operational, signposted and easily accessible automated external defibrillator (AED)?"},d:{es:"La disponibilidad de DESA es obligatoria en instalaciones deportivas conforme a la normativa vigente. El DESA debe estar señalizado, accesible y con revisión periódica documentada.",eu:"DESA edukitzea derrigorrezkoa da kirol instalazioetan indarreko arautegiak dioena kontuan hartuta. DESA seinalizatua, eskuragarri eta eguneratutako berrikuspenekin egon behar da.",en:"AED availability is mandatory in sports facilities under current regulations. The AED must be signposted, accessible and with documented periodic maintenance."}},
+   {c:"6.1.3",t:"OBL",p:{es:"¿Dominan el/la Coordinador/a Deportivo/a y todos los técnicos/as las técnicas de RCP básica y el uso del DESA?",eu:"Kirol Koordinatzaileak eta tekniko guztiek BBA oinarrizko teknikak eta DESA erabilera menderatzen al dituzte?",en:"Do the Sports Coordinator and all technicians master basic CPR techniques and AED use?"},d:{es:"La formación en RCP y DESA es obligatoria para todo el personal técnico. Debe acreditarse mediante certificado de curso de primeros auxilios en vigor (renovación anual recomendada, máximo bienal).",eu:"BBA eta DESA prestakuntza derrigorrezkoa da langile tekniko guztientzat. Indarreko lehen laguntza ikastaroaren ziurtagiriaren bidez egiaztatu behar da (urteko berritzea gomendatua, gehienez bi urtean behin).",en:"CPR and AED training is mandatory for all technical staff. Must be accredited by a valid first aid course certificate (annual renewal recommended, maximum biennial)."}},
+   {c:"6.1.4",t:"OBL",p:{es:"¿Existe un plan de emergencias y evacuación de la instalación deportiva, conocido por todo el personal?",eu:"Ba al dago kirol instalazioaren larrialdi eta ebakuazio plan bat langile guztiek ezagutzen dutena?",en:"Is there an emergency and evacuation plan for the sports facility, known to all staff?"},d:{es:"El plan de emergencias debe incluir: rutas de evacuación señalizadas, punto de encuentro, teléfonos de emergencia, protocolo ante accidente deportivo y protocolo de comunicación a familias.",eu:"Larrialdi planak ondokoak eduki behar ditu: seinalizatutako ebakuazio bideak, bilgune, larrialdi telefonoak, kirol istripu aurreko protokoloa eta familiekin komunikazio protokoloa.",en:"The emergency plan must include: signposted evacuation routes, meeting point, emergency phones, sports accident protocol and family communication protocol."}},
+   {c:"6.2.1",t:"OBL",p:{es:"¿Se realiza una verificación trimestral del estado de las instalaciones y del equipamiento deportivo?",eu:"Hiruhilean behin egiaztapen egin al da kirol instalazio eta ekipamenduen egoeraren?",en:"Is a quarterly verification carried out on the state of sports facilities and equipment?"},d:{es:"La verificación trimestral debe realizarse conforme a los listados técnicos de verificación de instalaciones deportivas validados para cada modalidad deportiva y la legislación vigente. Documentación firmada obligatoria.",eu:"Hiruhilabeteko egiaztapena kirol modalitate bakoitzarentzat balioztatutako kirol instalazioetako egiaztapen zerrenda teknikoaren eta indarreko legeriaren arabera egin behar da. Dokumentazio sinatua derrigorrezkoa.",en:"The quarterly verification must be carried out according to validated technical verification checklists for each sports modality and current legislation. Signed documentation required."}},
+   {c:"6.2.2",t:"OBL",p:{es:"¿Existe un inventario actualizado de todos los materiales y equipos de la instalación sujetos a control periódico?",eu:"Ba al dago aldian-aldian kontrolpean dauden instalazioaren material eta ekipo guztien inbentario eguneratu bat?",en:"Is there an updated inventory of all materials and equipment at the facility subject to periodic control?"},d:{es:"El inventario debe incluir: nombre del elemento, número de identificación, fecha de adquisición, ciclo de control, próxima revisión y responsable del control.",eu:"Inbentarioak honakoak eduki behar ditu: elementuaren izena, identifikazio zenbakia, eskurapen data, kontrol zikloa, hurrengo berrikuspena eta kontrol arduraduna.",en:"The inventory must include: item name, identification number, acquisition date, control cycle, next revision and control responsible person."}},
+   {c:"6.2.3",t:"MEJ",p:{es:"¿Cumplen las instalaciones deportivas con los requisitos de accesibilidad universal para personas con discapacidad?",eu:"Kirol instalazioek desgaitasuna duten pertsonen sarbide unibertsaleko eskakizunak betetzen al dituzte?",en:"Do the sports facilities comply with universal accessibility requirements for people with disabilities?"},d:{es:"Todas las instalaciones deben ser accesibles para personas con diversidad funcional, conforme al Real Decreto Legislativo 1/2013. Se deben identificar las barreras existentes y documentar el plan de eliminación progresiva.",eu:"Instalazio guztiak 1/2013 Legegintza Errege Dekretuaren arabera aniztasun funtzionala duten pertsonentzat irisgarriak izan behar dira. Dauden oztopoak identifikatu eta hauen ezabaketa progresiboaren plana dokumentatu behar da.",en:"All facilities must be accessible for people with functional diversity per Royal Legislative Decree 1/2013. Existing barriers must be identified and a plan for progressive elimination documented."}},
+   {c:"6.3.1",t:"OBL",p:{es:"¿Dispone la organización de un Protocolo de Actuación ante situaciones de abuso, acoso, maltrato o violencia en el deporte? (LOPIVI)",eu:"Ba al du erakundeak Jarduketa Protokoloa kiroleko tratu txar, jazarpen edo indarkeria egoeretarako? (LOPIVI)",en:"Does the organisation have an Action Protocol for situations of abuse, harassment, mistreatment or violence in sport? (LOPIVI)"},d:{es:"Conforme a la LOPIVI (LO 8/2021), toda organización en cuyo ámbito participen menores debe disponer de este protocolo, que debe incluir: canal de denuncia confidencial, procedimiento de actuación inmediata y designación de responsable de bienestar del deportista menor.",eu:"LOPIVI (8/2021 LO) arabera, adingabeak barne hartzen dituen eremuan jarduten duen erakunde guztiak protokolo hau eduki behar du: salaketa kanal konfidentziala, berehala jarduteko prozedura eta adingabeko kirolarien ongizate arduradunaren izendapena.",en:"Pursuant to LOPIVI (LO 8/2021), all organisations involving minors must have this protocol, which must include: confidential reporting channel, immediate action procedure and designation of a minor athlete welfare officer."}},
+   {c:"6.3.2",t:"OBL",p:{es:"¿Acredita todo el personal con contacto habitual con menores el certificado de ausencia de delitos de naturaleza sexual (REXSEX)?",eu:"Adingabeekin ohiko kontaktua duen langile guztiak sexu izaerako deliturik eza egiaztatzen duen ziurtagiria (REXSEX) al du?",en:"Does all staff with regular contact with minors hold the certificate of absence of sex offences (REXSEX)?"},d:{es:"La LO 1/1996 (modificada por LO 8/2021) exige que toda persona que trabaje habitualmente con menores acredite la ausencia de antecedentes por delitos sexuales. Este certificado debe solicitarse antes de la incorporación y renovarse cada cuatro años.",eu:"1/1996 LOk (8/2021 LOk aldatuta) adingabeekin ohiko lanean aritzen den pertsonak sexu delituen aurrekaririk eza egiaztatu behar duela eskatzen du. Ziurtagiri hau sartu aurretik eskatu eta lau urtero berritu behar da.",en:"LO 1/1996 (amended by LO 8/2021) requires all persons regularly working with minors to certify the absence of sex offence records. This certificate must be requested before joining and renewed every four years."}},
+   {c:"6.3.3",t:"MEJ",p:{es:"¿Existe un responsable de bienestar del deportista designado en la organización (Safeguarding Officer)?",eu:"Ba al dago erakundean izendatutako kirolarien ongizate arduradun bat (Safeguarding Officer)?",en:"Is an athlete welfare officer (Safeguarding Officer) designated in the organisation?"},d:{es:"Conforme a la LO 4/2023 del Deporte y las directrices del COI, se recomienda la designación de un responsable de bienestar del deportista que sirva como punto de referencia y confianza.",eu:"4/2023 Kirol LOaren eta KNBaren jarraibideen arabera, kirolarien ongizate arduraduna izendatzea gomendatzen da erreferentzia eta konfiantza puntu gisa.",en:"Pursuant to LO 4/2023 on Sport and IOC guidelines, it is recommended to designate an athlete welfare officer to serve as a reference and trust point."}}],
+  // S6
+  [{c:"7.1.1",t:"OBL",p:{es:"¿Se informa a los clientes y deportistas de todos los aspectos relevantes del servicio antes de su inicio?",eu:"Bezeroak eta kirolariak zerbitzuaren alderdi garrantzitsu guztiei buruz informatzen al dira hasi baino lehen?",en:"Are clients and athletes informed of all relevant aspects of the service before it starts?"},d:{es:"Antes del inicio de la temporada debe proporcionarse información clara sobre: ratios, plan de actividades, objetivos, titulación del personal, normas de la instalación, protocolos de seguridad y datos de contacto.",eu:"Denboraldiko hasieraren aurretik informazio argia eman behar da: ratioak, jarduera plana, helburuak, pertsonalaren titulazioaa, instalazioaren arauak, segurtasun protokoloak eta kontaktu datuak.",en:"Before the start of the season, clear information must be provided on: ratios, activity plan, objectives, staff qualifications, facility rules, safety protocols and contact details."}},
+   {c:"7.1.2",t:"OBL",p:{es:"¿Existe un sistema formal de recepción, registro y gestión de reclamaciones con respuesta garantizada en plazo?",eu:"Ba al dago erreklamazioen jasotzea, erregistratzea eta kudeaketarako sistema formal bat epe barruan erantzuna bermatzen duena?",en:"Is there a formal system for receiving, recording and managing complaints with guaranteed response within a deadline?"},d:{es:"El sistema debe garantizar: respuesta inicial en máximo 3 días hábiles, registro documental, verificación posterior de la satisfacción del usuario y análisis periódico de tendencias.",eu:"Sistemak ondokoa bermatu behar du: gehienez 3 egun baliodunetan hasierako erantzuna, dokumentu erregistroa, erabiltzailearen gogobetetzea gero egiaztatzea eta aldizko joerak azterketa.",en:"The system must guarantee: initial response within maximum 3 working days, document record, subsequent verification of user satisfaction and periodic trend analysis."}},
+   {c:"7.1.3",t:"MEJ",p:{es:"¿Dispone la organización de canales de comunicación digital actualizados y efectivos?",eu:"Ba al ditu erakundeak komunikazio kanal digital eguneratuak eta eraginkorrak?",en:"Does the organisation have updated and effective digital communication channels?"},d:{es:"La comunicación digital con deportistas y familias debe ser ágil, clara y respetuosa con la privacidad. Las comunicaciones con imágenes de menores requieren consentimiento expreso de los representantes legales.",eu:"Kirolariekin eta familiekin komunikazio digitala arina, argia eta pribatutasunaren errespetuzkoa izan behar da. Adingabeen irudiak dituzten komunikazioek ordezkari legalen adostasun beren-beregi behar dute.",en:"Digital communication with athletes and families must be agile, clear and privacy-respecting. Communications with images of minors require explicit consent from legal representatives."}},
+   {c:"7.1.4",t:"OBL",p:{es:"¿Se garantiza la custodia y protección de los bienes personales de los deportistas durante la actividad?",eu:"Jarduera garaian kirolarien ondasun pertsonalen zaintza eta babesa bermatzen al da?",en:"Is the custody and protection of athletes' personal belongings guaranteed during the activity?"},d:{es:"El/La técnico/a responsable debe ser el primero en abrir y el último en cerrar los vestuarios. Cualquier incidencia debe documentarse por escrito.",eu:"Arduradun teknikariak jangelak lehenago ireki eta azken itxi behar ditu. Edozein gertakari idatziz dokumentatu behar da.",en:"The responsible technician must be the first to open and last to close the changing rooms. Any incident must be documented in writing."}}],
+  // S7
+  [{c:"8.1.1",t:"OBL",p:{es:"¿Dispone la organización de cuestionarios de satisfacción diferenciados para deportistas, familias y personal técnico?",eu:"Ba al ditu erakundeak kirolarientzako, familientzako eta langile teknikoentzako bereizitako gogobetetze galdetegiak?",en:"Does the organisation have separate satisfaction questionnaires for athletes, families and technical staff?"},d:{es:"Deben existir cuestionarios específicos para cada segmento contemplando: calidad técnica, satisfacción con la comunicación, percepción de seguridad, valoración de instalaciones y espacio para sugerencias. Al menos dos veces por temporada.",eu:"Segmentu bakoitzarentzako galdetegi espezifikoak egon behar dira: kalitate teknikoa, komunikazioaren gogobetetzea, segurtasunaren pertzepzioa, instalazioen balorazioa eta iradokizunen espazioa. Gutxienez bi aldiz denboraldiko.",en:"Specific questionnaires must exist for each segment covering: technical quality, communication satisfaction, safety perception, facility assessment and suggestions space. At least twice per season."}},
+   {c:"8.1.2",t:"OBL",p:{es:"¿Se analizan los resultados de los cuestionarios y se implementan planes de acción ante los puntos débiles detectados?",eu:"Galdetegien emaitzak aztertzen al dira eta antzeman diren ahuleziei aurre egiteko ekintza planak inplementatzen al dira?",en:"Are questionnaire results analysed and action plans implemented for identified weaknesses?"},d:{es:"El análisis debe derivar en un informe de resultados con puntos fuertes y áreas de mejora, plan de acción con medidas concretas, responsables y plazos, y comunicación de los resultados al personal.",eu:"Azterketak emaitzen txosten bat ekarri behar du indarguneekin eta hobekuntza arloekin, ekintza plan bat neurri zehatzak, arduradunak eta epeak dituela, eta emaitzak pertsonalari komunikatzea.",en:"The analysis must result in a results report with strengths and improvement areas, an action plan with specific measures, responsible persons and deadlines, and communication of results to staff."}},
+   {c:"8.1.3",t:"OBL",p:{es:"¿Se realiza una revisión anual del sistema de gestión que valore el cumplimiento global de la norma y proponga objetivos de mejora?",eu:"Arauaren betetze orokorra baloratzen eta hobekuntza helburuak proposatzen dituen kudeaketa sistemaren urteko berrikuspena egiten al da?",en:"Is an annual review of the management system carried out assessing overall compliance with the standard and proposing improvement objectives?"},d:{es:"La revisión anual debe incluir: evaluación del grado de cumplimiento, resultados de satisfacción, estado de reclamaciones, nivel de formación, incidencias de seguridad y propuesta de objetivos para el siguiente año.",eu:"Urteko berrikuspenak honakoak eduki behar ditu: betetze mailaren ebaluazioa, gogobetetze emaitzak, erreklamazioen egoera, prestakuntza maila, segurtasun gertakariak eta hurrengo urterako helburuen proposamena.",en:"The annual review must include: evaluation of compliance level, satisfaction results, complaints status, training level, safety incidents and proposal of objectives for the following year."}}],
+  // S8
+  [{c:"9.1.1",t:"OBL",p:{es:"¿Dispone la organización de un Reglamento de Régimen Interno fundamentado en los valores humanos del deporte?",eu:"Ba al du erakundeak kiroleko giza balioetan oinarritutako Barne Arautegirik?",en:"Does the organisation have Internal Regulations based on the human values of sport?"},d:{es:"El Reglamento debe incluir explícitamente valores como: respeto, honestidad, compromiso, responsabilidad, integridad, dignidad, superación, solidaridad, tesón, esfuerzo, humildad, sinceridad y juego limpio.",eu:"Arautegiak berariaz ondoko balioak eduki behar ditu: errespetua, zintzotasuna, konpromisoa, erantzukizuna, osotasuna, duintasuna, hobekuntzarako borondatea, elkartasuna, kemena, ahalegina, apaltasuna, zintzotasuna eta joko garbia.",en:"The Regulations must explicitly include values such as: respect, honesty, commitment, responsibility, integrity, dignity, self-improvement, solidarity, perseverance, effort, humility, sincerity and fair play."}},
+   {c:"9.1.2",t:"OBL",p:{es:"¿Se gestiona el incumplimiento del Reglamento mediante un protocolo de no conformidades documentado?",eu:"Arautegiaren ez-betetzea dokumentatutako ez-betetze protokoloaren bidez kudeatzen al da?",en:"Is non-compliance with the Regulations managed through a documented non-conformity protocol?"},d:{es:"Debe existir un protocolo que establezca: detección y registro del incumplimiento, comunicación al implicado, medidas correctoras o sancionadoras proporcionales, firmas y seguimiento.",eu:"Protokoloa egon behar da honakoak ezarriaz: ez-betetzearen detekzioa eta erregistroa, tartean dagoenari komunikazioa, proportzionaltasuneko neurri zuzentzaile edo zigortzaileak, sinadurak eta jarraipena.",en:"A protocol must exist establishing: detection and registration of non-compliance, communication to the person involved, proportional corrective or sanctioning measures, signatures and follow-up."}},
+   {c:"9.1.3",t:"MEJ",p:{es:"¿Promueve activamente la organización una cultura de igualdad, inclusión y respeto a la diversidad?",eu:"Erakundeak aktiboki berdintasun, inklusio eta aniztasunerako errespetu kultura sustatzen al du?",en:"Does the organisation actively promote a culture of equality, inclusion and respect for diversity?"},d:{es:"La organización debe disponer de protocolos explícitos de prevención y actuación ante discriminación por razón de género, origen, discapacidad, orientación sexual u otra condición. Se recomienda la incorporación de la perspectiva de género en la planificación deportiva.",eu:"Erakundeak generoagatik, jatorriagatik, desgaitasunagatik, sexu-orientazioarengatik edo beste edozein baldintzengatiko diskriminazioaren prebentziozko eta jardun protokolo esplizituak eduki behar ditu. Genero ikuspegia kirol plangintzan txertatzea gomendatzen da.",en:"The organisation must have explicit protocols for prevention and action against discrimination based on gender, origin, disability, sexual orientation or any other condition. Incorporating a gender perspective in sports planning is recommended."}}],
+  // S9
+  [{c:"10.1.1",t:"MEJ",p:{es:"¿Existe una lista actualizada de proveedores de material deportivo evaluada anualmente conforme a criterios objetivos?",eu:"Ba al dago irizpide objektiboen arabera urtero ebaluatutako kirol material hornitzaileen zerrenda eguneraturik?",en:"Is there an updated list of sports material suppliers evaluated annually according to objective criteria?"},d:{es:"La lista de proveedores debe incluir evaluación anual de: relación calidad/precio, fiabilidad de entrega, respuesta ante reclamaciones y servicio posventa.",eu:"Hornitzaileen zerrendak urteko ebaluazioa eduki behar du: kalitate/prezio erlazioa, entregaren fidagarritasuna, erreklamazioei erantzuna eta zerbitzu osteko zerbitzu.",en:"The supplier list must include annual evaluation of: quality/price ratio, delivery reliability, response to complaints and after-sales service."}},
+   {c:"10.1.2",t:"MEJ",p:{es:"¿Se verifican y documentan los materiales deportivos recibidos tras su compra, comprobando su estado y conformidad?",eu:"Erosketaren ondoren jasotako kirol materialak egiaztatzen eta dokumentatzen al dira, haien egoera eta egokitasuna egiaztatuz?",en:"Are sports materials received after purchase verified and documented, checking their condition and conformity?"},d:{es:"El control de recepción de material debe documentarse mediante hoja de verificación fechada, firmada y con evaluación completa del estado del material.",eu:"Material jasotzeko kontrola datatuta, sinatuta eta materialaren egoera osoaren ebaluazioarekin egiaztapen orriaren bidez dokumentatu behar da.",en:"Material reception control must be documented through a dated, signed verification sheet with full assessment of the material's condition."}},
+   {c:"10.1.3",t:"MEJ",p:{es:"¿Es la facturación a los deportistas clara, estructurada y comprensible, con indicación de todos los conceptos y datos de contacto?",eu:"Kirolariei fakturaketa argia, egituratua eta ulergarria al da, kontzeptu eta kontaktu datu guztiak adierazita?",en:"Is billing to athletes clear, structured and understandable, indicating all concepts and contact details?"},d:{es:"Las facturas o recibos deben desglosar claramente todos los conceptos cobrados, indicar la fecha del próximo cobro, y contener el nombre del Coordinador/a con teléfono, correo electrónico y horario de atención.",eu:"Fakturek edo ordainagiriek argi banatu behar dituzte kobratutako kontzeptu guztiak, hurrengo kobrantza data adierazi, eta Koordinatzailearen izena telefono, posta elektroniko eta arreta-ordutegiarekin eduki.",en:"Invoices or receipts must clearly itemise all charged concepts, indicate the next payment date, and contain the Coordinator's name with phone, email and service hours."}}],
+  // S10
+  [{c:"11.1.1",t:"MEJ",p:{es:"¿Incorpora la planificación deportiva contenidos y objetivos relacionados con la salud integral, la nutrición y el bienestar del deportista?",eu:"Kirol plangintza kirolarien osasun integrala, elikadura eta ongizateari buruzko edukiak eta helburuak barne hartzen al ditu?",en:"Does the sports planning incorporate contents and objectives related to integral health, nutrition and athlete wellbeing?"},d:{es:"Los objetivos generales de la planificación deben incluir expresamente: salud física y prevención de lesiones, nutrición deportiva básica, higiene deportiva, bienestar emocional y psicológico, y gestión del esfuerzo y la recuperación.",eu:"Plangintzaren helburu orokorrek berariaz ondokoak jaso behar dituzte: osasun fisiko eta lesioen prebentzioa, oinarrizko kirol elikadura, kirol higienea, ongizate emozional eta psikologikoa, eta ahalegina eta berreskuratzeko kudeaketa.",en:"The general objectives of the planning must explicitly include: physical health and injury prevention, basic sports nutrition, sports hygiene, emotional and psychological wellbeing, and effort and recovery management."}},
+   {c:"11.1.2",t:"MEJ",p:{es:"¿Dispone la organización de protocolos de actuación ante situaciones de malestar psicológico, burnout o problemas emocionales de los deportistas?",eu:"Ba al du erakundeak kirolarien ezinegon psikologiko, burnout edo arazo emozionalen egoerekin aurre egiteko jarduteko protokolorik?",en:"Does the organisation have action protocols for situations of psychological distress, burnout or emotional problems in athletes?"},d:{es:"La organización debe disponer de: protocolo de detección precoz de malestar psicológico, protocolo de derivación a profesionales de la salud mental, y canal de comunicación confidencial para los deportistas.",eu:"Erakundeak ondokoak eduki behar ditu: ezinegon psikologikoaren goiz detekzio protokoloa, osasun mental profesionaletara bidaltzeko protokoloa eta kirolarientzako komunikazio kanal konfidentziala.",en:"The organisation must have: early detection protocol for psychological distress, referral protocol to mental health professionals, and a confidential communication channel for athletes."}},
+   {c:"11.1.3",t:"REC",p:{es:"¿Promueve la organización prácticas deportivas respetuosas con el medio ambiente y aplica criterios de sostenibilidad en su gestión?",eu:"Erakundeak ingurumenarekiko errespetuzko kirol praktikak sustatzen al ditu eta bere kudeaketan iraunkortasun irizpideak aplikatzen al ditu?",en:"Does the organisation promote environmentally respectful sporting practices and apply sustainability criteria in its management?"},d:{es:"Se recomienda la implementación de medidas de sostenibilidad: gestión eficiente del agua, uso de materiales reciclados, reducción de plásticos, movilidad sostenible y comunicación preferentemente digital. Documentar al menos tres medidas implementadas.",eu:"Iraunkortasun neurriak ezartzea gomendatzen da: ur kudeaketa eraginkorra, birziklatutako materialen erabilera, plastikoen murrizketa, mugikortasun iraunkorra eta komunikazio digitalena ahal dela. Gutxienez hiru neurri dokumentatu.",en:"Sustainability measures are recommended: efficient water management, use of recycled materials, plastic reduction, sustainable mobility and preferably digital communication. Document at least three measures implemented."}}],
+];
+
+// ═══════════════════════════════════════════════════════════════════
+// SECCIONES PORTAL (lista)
+// ═══════════════════════════════════════════════════════════════════
+function renderSeccionesLista() {
+  const cont = document.getElementById('secciones-list');
+  const tiposCount = s => {
+    const bs = s.badges;
+    const o = bs.filter(b=>b==='OBL').length;
+    const m = bs.filter(b=>b==='MEJ').length;
+    const r = bs.filter(b=>b==='REC').length;
+    return {o,m,r};
+  };
+  cont.innerHTML = SECCIONES_INFO.map(s => {
+    const {o,m,r} = tiposCount(s);
+    return `<div class="sec-item">
+      <div class="sec-item-num">${String(s.id).padStart(2,'0')}</div>
+      <div class="sec-item-info">
+        <div class="sec-item-title">${s.titulo[lang]||s.titulo.es}</div>
+        <div class="sec-item-desc">${s.desc[lang]||s.desc.es}</div>
+      </div>
+      <div class="sec-item-badges">
+        ${o>0?`<span class="mini-badge mb-r">${o} ${T[lang].tipo_OBL||T.es.tipo_OBL}</span>`:''}
+        ${m>0?`<span class="mini-badge mb-g">${m} ${T[lang].tipo_MEJ||T.es.tipo_MEJ}</span>`:''}
+        ${r>0?`<span class="mini-badge mb-y">${r} ${T[lang].tipo_REC||T.es.tipo_REC}</span>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// HERRAMIENTA DE AUDITORÍA
+// ═══════════════════════════════════════════════════════════════════
+const respuestas = {};
+const puntos = {OBL:3, MEJ:2, REC:1};
+
+function regenerarHerramienta() {
+  const cont = document.getElementById('tool-secciones');
+  cont.innerHTML = '';
+  CRITERIOS_DATA.forEach((crits, si) => {
+    const sec = SECCIONES_INFO[si];
+    const el = document.createElement('div');
+    el.className = 'tool-seccion';
+    el.id = 'tsec-'+(si+1);
+    const critsHtml = crits.map(c => {
+      const r = respuestas[c.c] || '';
+      const cls = r==='si'?'si':r==='no'?'no':r==='na'?'na':'';
+      const tLabel = c.t==='OBL'?(T[lang].tipo_OBL||'OBLIGATORIO'):c.t==='MEJ'?(T[lang].tipo_MEJ||'MEJORA'):(T[lang].tipo_REC||'RECOMENDACIÓN');
+      return `<div class="criterio ${cls}" id="crit-${c.c}" data-tipo="${c.t}" data-estado="${r||'pend'}">
+        <div class="crit-hdr">
+          <span class="crit-codigo">${c.c}</span>
+          <div class="crit-pregunta">${c.p[lang]||c.p.es}</div>
+          <span class="tipo-pill tp-${c.t}">${tLabel}</span>
+        </div>
+        <div class="crit-body">
+          <div class="crit-desc">${c.d[lang]||c.d.es}</div>
+          <div class="crit-acciones">
+            <button class="crit-btn si ${r==='si'?'sel':''}" onclick="marcar('${c.c}','si',this)">${T[lang].crit_si||'✓ SÍ'}</button>
+            <button class="crit-btn no ${r==='no'?'sel':''}" onclick="marcar('${c.c}','no',this)">${T[lang].crit_no||'✗ NO'}</button>
+            <button class="crit-btn na ${r==='na'?'sel':''}" onclick="marcar('${c.c}','na',this)">${T[lang].crit_na||'— N/A'}</button>
+          </div>
+          <textarea class="crit-obs" placeholder="${T[lang].crit_obs||'Observaciones…'}" onchange="respuestas['${c.c}_obs']=this.value">${respuestas[c.c+'_obs']||''}</textarea>
+        </div>
+      </div>`;
+    }).join('');
+
+    el.innerHTML = `
+      <div class="tool-sec-hdr" onclick="toggleSec(${si+1},this)">
+        <div class="tool-sec-num">${si+1}</div>
+        <div class="tool-sec-titulo">${sec.titulo[lang]||sec.titulo.es}</div>
+        <span class="tool-sec-prog" id="tprog-${si+1}">0/${crits.length}</span>
+        <div class="tool-sec-mini"><div class="tool-sec-mini-inner" id="tmini-${si+1}" style="width:0%"></div></div>
+        <svg class="tool-sec-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="tool-sec-body open" id="tsecbody-${si+1}">${critsHtml}</div>`;
+    cont.appendChild(el);
+    actualizarSeccion(si+1, crits);
+  });
+  actualizarScore();
+  renderSeccionesLista();
+}
+
+function toggleSec(id, hdr) {
+  const body = document.getElementById('tsecbody-'+id);
+  const chev = hdr.querySelector('.tool-sec-chev');
+  const open = body.classList.toggle('open');
+  chev.classList.toggle('open', open);
+}
+
+function marcar(codigo, val, btn) {
+  respuestas[codigo] = val;
+  const el = document.getElementById('crit-'+codigo);
+  el.className = 'criterio ' + (val==='si'?'si':val==='no'?'no':val==='na'?'na':'');
+  el.dataset.estado = val;
+  el.querySelectorAll('.crit-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  const si = CRITERIOS_DATA.findIndex(sec => sec.some(c => c.c === codigo));
+  if (si >= 0) actualizarSeccion(si+1, CRITERIOS_DATA[si]);
+  actualizarScore();
+}
+
+function actualizarSeccion(id, crits) {
+  let resp = 0;
+  crits.forEach(c => { if (respuestas[c.c]) resp++; });
+  const pct = Math.round(resp/crits.length*100);
+  const prog = document.getElementById('tprog-'+id);
+  const mini = document.getElementById('tmini-'+id);
+  if (prog) prog.textContent = resp+'/'+crits.length;
+  if (mini) mini.style.width = pct+'%';
+}
+
+function actualizarScore() {
+  let totPos=0, totObt=0, cumpl=0, incumpl=0, pend=0, oblKo=0;
+  CRITERIOS_DATA.flat().forEach(c => {
+    const r = respuestas[c.c];
+    const pts = puntos[c.t];
+    if (!r) { pend++; totPos+=pts; return; }
+    if (r==='na') return;
+    totPos+=pts;
+    if (r==='si') { totObt+=pts; cumpl++; }
+    else if (r==='no') { incumpl++; if(c.t==='OBL') oblKo++; }
+  });
+  const total = CRITERIOS_DATA.flat().length;
+  const resp = total-pend;
+  const pct = totPos>0 ? Math.round(totObt/totPos*100) : 0;
+  const pctComp = Math.round(resp/total*100);
+
+  document.getElementById('sc-pct').textContent = pct+'%';
+  document.getElementById('sc-si').textContent = cumpl;
+  document.getElementById('sc-no').textContent = incumpl;
+  document.getElementById('sc-pend').textContent = pend;
+  document.getElementById('sc-barra').style.width = pctComp+'%';
+  document.getElementById('sc-pct-prog').textContent = pctComp+'%';
+
+  const niv = document.getElementById('sc-nivel');
+  niv.className = 'score-nivel';
+  if (pend>0) { niv.textContent = '…'; }
+  else if (oblKo>0) { niv.textContent = '✗ Sin cert.'; }
+  else if (pct>=90) { niv.textContent = '★★★ Three Stars'; niv.classList.add('n3'); }
+  else if (pct>=75) { niv.textContent = '★★ Two Stars'; niv.classList.add('n2'); }
+  else if (pct>=60) { niv.textContent = '★ One Star'; niv.classList.add('n1'); }
+  else { niv.textContent = 'Mejoras necesarias'; }
+}
+
+function tfFiltrar(tipo, btn) {
+  document.querySelectorAll('.tf-btn').forEach(b => { b.className = 'tf-btn inactivo'; });
+  const cls = tipo==='todos'?'activo-r':tipo==='OBL'?'activo-r':tipo==='MEJ'?'activo-g':tipo==='REC'?'activo-y':'activo-k';
+  btn.className = `tf-btn ${cls}`;
+  document.querySelectorAll('.criterio').forEach(el => {
+    if (tipo==='todos') { el.style.display=''; return; }
+    if (tipo==='pend') { el.style.display = el.dataset.estado==='pend'||!el.dataset.estado?'':'none'; return; }
+    el.style.display = el.dataset.tipo===tipo?'':'none';
+  });
+}
+
+function resetearAuditoria() {
+  if (!confirm('¿Estás seguro de que quieres reiniciar toda la evaluación?')) return;
+  Object.keys(respuestas).forEach(k => delete respuestas[k]);
+  regenerarHerramienta();
+}
+
+function verResultado() {
+  let totPos=0, totObt=0, cumpl=0, total=0, oblKo=0;
+  CRITERIOS_DATA.flat().forEach(c => {
+    const r = respuestas[c.c]; const pts = puntos[c.t];
+    if (!r||r==='na') return;
+    total++; totPos+=pts;
+    if (r==='si') { totObt+=pts; cumpl++; }
+    else if (c.t==='OBL') oblKo++;
+  });
+  const pct = totPos>0 ? Math.round(totObt/totPos*100) : 0;
+  document.getElementById('mod-pct').textContent = pct+'%';
+  document.getElementById('mod-cumpl').textContent = cumpl+'/'+total;
+  document.getElementById('mod-oblko').textContent = oblKo;
+
+  let est, nom, desc, info;
+  if (total===0) {
+    est='—'; nom='Sin datos suficientes'; desc='Completa al menos algunos criterios para obtener un diagnóstico.'; info='Inicia la evaluación marcando SÍ, NO o N/A en cada criterio.';
+  } else if (oblKo>0) {
+    est='✗'; nom='Sin certificación ESS';
+    desc=`Existen ${oblKo} criterio(s) OBLIGATORIO(S) incumplidos. La certificación ESS requiere el cumplimiento del 100% de los criterios obligatorios.`;
+    info=`Resuelve los ${oblKo} criterio(s) OBLIGATORIO(S) incumplidos antes de optar a cualquier nivel de certificación. Contacta con el autor: txusmicoach@gmail.com · 616 026 911.`;
+  } else if (pct>=90) {
+    est='★★★'; nom='ESS Three Stars';
+    desc='Tu organización es un referente de excelencia en gestión deportiva. Has alcanzado el máximo nivel de certificación ESS.';
+    info='Solicita la auditoría externa oficial al autor de la norma para obtener el certificado ESS Three Stars: txusmicoach@gmail.com · 616 026 911.';
+  } else if (pct>=75) {
+    est='★★'; nom='ESS Two Stars';
+    desc='Tu organización cuenta con un sistema de gestión de calidad consolidado. Has superado todos los requisitos básicos y la mayoría de los criterios de mejora.';
+    info='Para obtener el nivel Three Stars, trabaja en los criterios de MEJORA y RECOMENDACIÓN pendientes. Contacta: txusmicoach@gmail.com · 616 026 911.';
+  } else if (pct>=60) {
+    est='★'; nom='ESS One Star';
+    desc='Tu organización cumple todos los requisitos básicos de calidad y seguridad. Es un punto de partida sólido para avanzar hacia niveles superiores.';
+    info='Para mejorar al nivel Two Stars, trabaja en los criterios de MEJORA. Contacta: txusmicoach@gmail.com · 616 026 911.';
+  } else {
+    est='—'; nom='Mejoras necesarias';
+    desc='Tu organización necesita mejorar para alcanzar el primer nivel de certificación ESS.';
+    info='Trabaja en los criterios de MEJORA pendientes. Contacta: txusmicoach@gmail.com · 616 026 911.';
+  }
+  document.getElementById('mod-estrellas').textContent = est;
+  document.getElementById('mod-nombre').textContent = nom;
+  document.getElementById('mod-desc').textContent = desc;
+  document.getElementById('mod-info').textContent = info;
+  document.getElementById('modal-bg').classList.add('open');
+}
+
+function cerrarModal() { document.getElementById('modal-bg').classList.remove('open'); }
+document.getElementById('modal-bg').addEventListener('click', e => { if(e.target===document.getElementById('modal-bg')) cerrarModal(); });
+
+function irA(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior:'smooth'});
+}
+
+// ── ANIMACIONES SCROLL ──
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold:0.08});
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// ── FIRMAS DIGITALES ──
+function iniciarFirma(canvasId, color) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas || canvas._firmaIniciada) return;
+  canvas._firmaIniciada = true;
+  const ctx = canvas.getContext('2d');
+  ctx.strokeStyle = color || '#1A1A1A';
+  ctx.lineWidth = 2;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  let dibujando = false;
+  let ultimoX = 0, ultimoY = 0;
+
+  function getPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return { x: (clientX - rect.left) * scaleX, y: (clientY - rect.top) * scaleY };
+  }
+  function iniciar(e) {
+    e.preventDefault(); dibujando = true;
+    const pos = getPos(e); ultimoX = pos.x; ultimoY = pos.y;
+    ctx.beginPath(); ctx.arc(pos.x, pos.y, 1, 0, Math.PI * 2);
+    ctx.fillStyle = color || '#1A1A1A'; ctx.fill();
+  }
+  function dibujar(e) {
+    if (!dibujando) return; e.preventDefault();
+    const pos = getPos(e);
+    ctx.beginPath(); ctx.moveTo(ultimoX, ultimoY);
+    ctx.lineTo(pos.x, pos.y); ctx.stroke();
+    ultimoX = pos.x; ultimoY = pos.y;
+  }
+  function parar(e) { e.preventDefault(); dibujando = false; }
+
+  canvas.addEventListener('mousedown', iniciar);
+  canvas.addEventListener('mousemove', dibujar);
+  canvas.addEventListener('mouseup', parar);
+  canvas.addEventListener('mouseleave', parar);
+  canvas.addEventListener('touchstart', iniciar, { passive: false });
+  canvas.addEventListener('touchmove', dibujar, { passive: false });
+  canvas.addEventListener('touchend', parar, { passive: false });
+}
+
+function limpiarFirma(canvasId) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function inicializarFirmas() {
+  iniciarFirma('canvas-entidad', '#C8102E');
+  iniciarFirma('canvas-auditor', '#007A33');
+  const hoy = new Date().toISOString().split('T')[0];
+  const fe = document.getElementById('firma-ent-fecha');
+  const fa = document.getElementById('firma-aud-fecha');
+  if (fe && !fe.value) fe.value = hoy;
+  if (fa && !fa.value) fa.value = hoy;
+}
+
+function abrirAuditoria() {
+  const sec = document.getElementById('auditoria');
+  sec.classList.add('visible');
+  sec.scrollIntoView({ behavior: 'smooth' });
+  regenerarHerramienta();
+  setTimeout(inicializarFirmas, 400);
+}
+
+// ── INIT ──
+renderSeccionesLista();
+setLang('es');
+</script>
+</body>
+</html>
