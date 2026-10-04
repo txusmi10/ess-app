@@ -1382,6 +1382,26 @@ function actualizarSeccion(id, crits) {
   if (mini) mini.style.width = pct+'%';
 }
 
+function calcularNivel() {
+  let totPos=0, totObt=0, oblKo=0, mejSi=0, mejTot=0;
+  CRITERIOS_DATA.flat().forEach(c => {
+    const r = respuestas[c.c];
+    if (!r || r==='na') return;
+    totPos += puntos[c.t];
+    if (c.t==='MEJ') mejTot++;
+    if (r==='si') { totObt += puntos[c.t]; if (c.t==='MEJ') mejSi++; }
+    else if (c.t==='OBL') oblKo++;
+  });
+  const pct = totPos>0 ? Math.round(totObt/totPos*100) : 0;
+  const pctMej = mejTot>0 ? Math.round(mejSi/mejTot*100) : 100;
+  let nivel = 0;
+  if (oblKo>0) nivel = 0;
+  else if (pct>=90 && pctMej>=90) nivel = 3;
+  else if (pct>=75 && pctMej>=70) nivel = 2;
+  else if (pct>=60) nivel = 1;
+  return { oblKo, pct, pctMej, nivel };
+}
+
 function actualizarScore() {
   let totPos=0, totObt=0, cumpl=0, incumpl=0, pend=0, oblKo=0;
   CRITERIOS_DATA.flat().forEach(c => {
@@ -1407,11 +1427,12 @@ function actualizarScore() {
 
   const niv = document.getElementById('sc-nivel');
   niv.className = 'score-nivel';
+  const N = calcularNivel();
   if (pend>0) { niv.textContent = '…'; }
   else if (oblKo>0) { niv.textContent = '✗ Sin cert.'; }
-  else if (pct>=90) { niv.textContent = '★★★ Three Stars'; niv.classList.add('n3'); }
-  else if (pct>=75) { niv.textContent = '★★ Two Stars'; niv.classList.add('n2'); }
-  else if (pct>=60) { niv.textContent = '★ One Star'; niv.classList.add('n1'); }
+  else if (N.nivel===3) { niv.textContent = '★★★ Three Stars'; niv.classList.add('n3'); }
+  else if (N.nivel===2) { niv.textContent = '★★ Two Stars'; niv.classList.add('n2'); }
+  else if (N.nivel===1) { niv.textContent = '★ One Star'; niv.classList.add('n1'); }
   else { niv.textContent = 'Mejoras necesarias'; }
 }
 
@@ -1447,21 +1468,22 @@ function verResultado() {
   document.getElementById('mod-oblko').textContent = oblKo;
 
   let est, nom, desc, info;
+  const N = calcularNivel();
   if (total===0) {
     est='—'; nom='Sin datos suficientes'; desc='Completa al menos algunos criterios para obtener un diagnóstico.'; info='Inicia la evaluación marcando SÍ, NO o N/A en cada criterio.';
   } else if (oblKo>0) {
     est='✗'; nom='Sin certificación ESS';
     desc=`Existen ${oblKo} criterio(s) OBLIGATORIO(S) incumplidos. La certificación ESS requiere el cumplimiento del 100% de los criterios obligatorios.`;
     info=`Resuelve los ${oblKo} criterio(s) OBLIGATORIO(S) incumplidos antes de optar a cualquier nivel de certificación. Contacta con el autor: txusmicoach@gmail.com · 616 026 911.`;
-  } else if (pct>=90) {
+  } else if (N.nivel===3) {
     est='★★★'; nom='ESS Three Stars';
     desc='Tu organización es un referente de excelencia en gestión deportiva. Has alcanzado el máximo nivel de certificación ESS.';
     info='Solicita la auditoría externa oficial al autor de la norma para obtener el certificado ESS Three Stars: txusmicoach@gmail.com · 616 026 911.';
-  } else if (pct>=75) {
+  } else if (N.nivel===2) {
     est='★★'; nom='ESS Two Stars';
     desc='Tu organización cuenta con un sistema de gestión de calidad consolidado. Has superado todos los requisitos básicos y la mayoría de los criterios de mejora.';
     info='Para obtener el nivel Three Stars, trabaja en los criterios de MEJORA y RECOMENDACIÓN pendientes. Contacta: txusmicoach@gmail.com · 616 026 911.';
-  } else if (pct>=60) {
+  } else if (N.nivel===1) {
     est='★'; nom='ESS One Star';
     desc='Tu organización cumple todos los requisitos básicos de calidad y seguridad. Es un punto de partida sólido para avanzar hacia niveles superiores.';
     info='Para mejorar al nivel Two Stars, trabaja en los criterios de MEJORA. Contacta: txusmicoach@gmail.com · 616 026 911.';
